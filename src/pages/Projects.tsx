@@ -15,19 +15,19 @@ const Projects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
       },
     },
   };
 
   const item = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 10, opacity: 0.3 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         type: "spring" as const,
-        stiffness: 100,
+        stiffness: 60,
         damping: 20,
       },
     },

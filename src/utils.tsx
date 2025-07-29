@@ -74,7 +74,8 @@ export const projects = [
   {
     id: "4",
     title: "Easy template maker",
-    description: "This ",
+    description:
+      "i want to check if i can make any thing using drag and drop libraries so i make this simple one please open this on desktop it is not responsive ",
     techUsed: [
       "React",
       "Html",
@@ -91,7 +92,8 @@ export const projects = [
   {
     id: "5",
     title: "A try with scroll animations",
-    description: "This ",
+    description:
+      "This is using simple page using javascript code and animation library i was trying to make a scroll animation just like 3JS but without it  ",
     techUsed: [
       "React",
       "Html",
