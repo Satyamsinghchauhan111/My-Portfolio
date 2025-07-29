@@ -4,7 +4,7 @@ import Portfolio from "@/components/Portfolio";
 const Index = () => {
   return (
     <div className="max-lg:max-w-[100vw] max-lg:overflow-hidden">
-      <FuturisticCursor />
+      {/* <FuturisticCursor /> */}
       <Portfolio />{" "}
     </div>
   );
