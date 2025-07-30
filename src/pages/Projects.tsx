@@ -38,10 +38,10 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: false, amount: 0.8 }}
+          transition={{ delay: 0.2 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
             Featured Projects
@@ -56,13 +56,13 @@ const Projects = () => {
           variants={container}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.03 }}
         >
           {projects.map((project, index) => (
             <motion.div key={project.id} variants={item}>
               <Card className="glass glass-hover p-0 border-white/10 h-full flex flex-col overflow-hidden">
                 {/* Image Carousel */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-52 overflow-hidden">
                   <Carousel
                     opts={{
                       align: "start",
@@ -85,7 +85,7 @@ const Projects = () => {
                               alt={`${project.title} preview ${imgIndex + 1}`}
                               className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                            {/* <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" /> */}
                           </div>
                         </CarouselItem>
                       ))}
@@ -98,7 +98,10 @@ const Projects = () => {
                   <div className="flex-1">
                     <motion.div
                       className="flex items-center space-x-4"
-                      variants={contactItem}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                      transition={{ delay: 0.2 }}
                     >
                       <h3 className="text-xl font-semibold mb-3 text-primary">
                         {project.title}
@@ -106,13 +109,21 @@ const Projects = () => {
                     </motion.div>
                     <motion.div
                       className="flex items-center space-x-4"
-                      variants={contactItem}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                      transition={{ delay: 0.2 }}
                     >
                       <p className="text-foreground/70 mb-4 leading-relaxed max-h-24 overflow-scroll">
                         {project.description}
                       </p>
                     </motion.div>
-                    <motion.div variants={contactItem}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                      transition={{ delay: 0.2 }}
+                    >
                       <div className="mb-6">
                         <h4 className="text-sm font-medium text-secondary mb-2">
                           Tech Used:
@@ -134,7 +145,10 @@ const Projects = () => {
                   <div className="flex gap-3 mt-auto">
                     <motion.div
                       className="flex items-center space-x-4 tooltip"
-                      variants={contactItem}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                      transition={{ delay: 0.2 }}
                       data-tip="ask permission"
                     >
                       <CommonButton
@@ -146,7 +160,10 @@ const Projects = () => {
                     </motion.div>
                     <motion.div
                       className="flex items-center space-x-4"
-                      variants={contactItem}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                      transition={{ delay: 0.2 }}
                     >
                       <CommonButton
                         text="Live Demo"
