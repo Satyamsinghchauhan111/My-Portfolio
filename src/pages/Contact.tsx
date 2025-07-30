@@ -149,16 +149,16 @@ const Contact = () => {
                   </motion.div>
 
                   <motion.div
-                    className="flex items-center space-x-4"
+                    className="flex items-center space-x-4 cursor-pointer "
                     variants={contactItem}
                   >
                     <div className="neu w-12 h-12 rounded-xl flex items-center justify-center">
                       <span className="text-secondary">🐙</span>
                     </div>
-                    <div>
-                      <p className="font-medium">GitHub</p>
+                    <div className="tooltip" data-tip="ask permission">
+                      <p className="font-medium ">GitHub</p>
                       <a
-                        href="https://github.com/satyamtheone"
+                        // href="https://github.com/satyamtheone"
                         className="text-foreground/70"
                       >
                         https://github.com/satyamtheone
