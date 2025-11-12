@@ -103,27 +103,26 @@ const About = () => {
                   </h3>
                   <div className="max-h-72 md:max-h-96 overflow-y-auto">
                     <p className="text-sm md:text-base text-foreground/80 leading-relaxed mb-3 md:mb-4 hover:text-foreground transition-colors duration-300">
-                      I'm a frontend-focused full stack developer with over 6
-                      years of professional experience across enterprise and
-                      product-based environments. My journey began at Genpact,
-                      where I spent 4+ years streamlining backend insurance
-                      processes and developing a strong foundation in systems
-                      thinking, problem-solving, and process optimization.
-                      Transitioning into tech-driven innovation at Codeblock
-                      Technologies, I've spent the last 2+ years building
-                      modern, scalable applications using React, Next.js,
-                      TypeScript, Tailwind CSS, and Firebase.
+                      I'm a Frontend Developer with over 6 years of professional
+                      experience across enterprise and product-based
+                      environments. My journey began at Genpact, where I spent
+                      4+ years improving process efficiency and developing
+                      strong skills in problem-solving, collaboration, and
+                      system understanding. Over the past 2+ years at Codeblock
+                      Technologies, I’ve focused on building modern, scalable,
+                      and high-performance web applications using React,
+                      Next.js, TypeScript, Tailwind CSS, and Firebase.
                     </p>
                     <p className="text-sm md:text-base text-foreground/80 leading-relaxed hover:text-foreground transition-colors duration-300">
                       My strength lies in delivering seamless user experiences
-                      through responsive, accessible, and aesthetically clean
-                      UIs, backed by efficient architecture and real-time data
-                      handling. Whether it's implementing SSR, building
-                      component systems, integrating theming, or deploying
-                      cross-platform apps via Capacitor, I bring a balance of
-                      design sensitivity and technical depth. I'm passionate
-                      about crafting products that not only work flawlessly but
-                      also feel intuitive and engaging to users.
+                      through responsive, accessible, and visually refined UIs
+                      powered by efficient frontend architecture. Whether it’s
+                      implementing Server-Side Rendering (SSR), building
+                      component-driven systems, creating dynamic theming, or
+                      optimizing performance, I bring a strong balance of design
+                      precision and technical expertise. I’m passionate about
+                      crafting digital products that not only look beautiful but
+                      also feel smooth, intuitive, and user-centered.
                     </p>
                   </div>
                 </Card>

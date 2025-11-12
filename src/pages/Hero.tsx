@@ -40,7 +40,7 @@ const Hero = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.2 }}
-        className="container mx-auto relative z-10 grid md:grid-cols-2 grid-cols-1 px-4 md:px-5 gap-8 md:gap-0"
+        className="container mx-auto relative z-10 grid md:grid-cols-2  grid-cols-1 px-4 md:px-5 gap-8 md:gap-0"
       >
         <HeroAvatar />
 
@@ -75,14 +75,18 @@ const Hero = () => {
                   variants={contactItem}
                   className="text-justify  dark:text-white text-black"
                 >
-                  <span className="animate-fade-in-up  text-[16px]  md:text-left">
-                    Frontend-focused full stack developer with 6+ years of
-                    professional experience delivering responsive, user-centric
-                    web and mobile applications. Skilled in React, Next.js,
-                    TypeScript, Tailwind CSS, and Firebase. Built scalable
-                    systems with SSR, dynamic theming, and real-time features.
-                    Proven track record across enterprise (Genpact) and
-                    tech-driven (Codeblock) environments.
+                  <span className="animate-fade-in-up  text-[16px]  md:text-left leading-[10px]">
+                    I’m an experienced Frontend Developer with 3+ years of
+                    expertise in building responsive, user-focused, and
+                    high-performance web applications. Specialized in React.js,
+                    I create scalable and visually engaging interfaces using
+                    TypeScript, JavaScript, Tailwind CSS, and Material UI. I
+                    focus on crafting clean, reusable, and accessible components
+                    that enhance usability and user experience. Passionate about
+                    UI/UX design and performance optimization, I deliver modern,
+                    seamless digital experiences. A collaborative and
+                    detail-oriented developer, I turn ideas into polished,
+                    production-ready products.
                   </span>
                 </motion.div>
               </div>
