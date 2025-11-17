@@ -5,6 +5,7 @@ import Contact from "@/pages/Contact";
 import Projects from "@/pages/Projects";
 import Hero from "@/pages/Hero";
 import Navbar from "./Navbar";
+import Fab from "./Fab";
 
 const Portfolio = () => {
   return (
@@ -16,14 +17,16 @@ const Portfolio = () => {
       <About />
       {/* Projects Section */}
       <Projects />
+
+      <Fab />
       {/* Contact Section */}
       <Contact />
       {/* Footer */}
       <footer className="py-8 border-t border-white/10">
         <div className="container mx-auto px-6 text-center">
           <p className="text-foreground/60">
-            © 2025 Satyam Developer. Crafted with ❤️ using React & Tailwind CSS
-            & Daisy ui
+            © 2025 Satyam Developer. Crafted with ❤️ using React, Typescript,
+            Tailwind CSS & Daisy ui
           </p>
         </div>
       </footer>

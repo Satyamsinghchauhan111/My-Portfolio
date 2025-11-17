@@ -107,31 +107,105 @@ export const projects = [
     liveLink: "https://stellular-cassata-d6d7ea.netlify.app/",
     images: [future1, future2, future3],
   },
+  {
+    id: "6",
+    title: "YoBiz",
+    description: `The project was a B2C web platform designed for individual retailers, enabling them to instantly create and share
+     digital product catalogs, promotional posts, and product links to boost online visibility and sales. It also featured ad banner 
+     placements to help retailers promote their products effectively.
+     `,
+    role: `As a Frontend Developer, I was responsible for building responsive, user-friendly interfaces using React.js,
+     TypeScript, and Tailwind CSS. My work focused on delivering smooth navigation, dynamic content rendering, 
+     and visually engaging experiences optimized for both mobile and desktop. I also ensured that notifications,
+      connectivity handling, and Android system-level API integrations worked reliably and seamlessly within the application.`,
+    techUsed: [
+      "React Js",
+      "Next Js",
+      "Typescript",
+      "Redux",
+      "Capacitor",
+      "Firebase Notification",
+      "Tailwind",
+      "Daisy Ui",
+      "Formik",
+      "Html",
+      "CSS",
+    ],
+  },
+  {
+    id: "7",
+    title: "ImagineClick",
+    description: `The project was a service marketplace platform that connected service providers and receivers 
+    for tasks such as cleaning, tile work,
+     plastering, and delivery services. Users could create detailed profiles
+     showcasing their skills or needs, receive personalized recommendations, search for relevant services,
+      and directly message others to offer or request help.
+     `,
+    role: `As a Frontend Developer, I
+       developed responsive, user-friendly interfaces using React.js, TypeScript, and Tailwind CSS, 
+       ensuring smooth navigation, real-time interaction, and a seamless experience across devices.`,
+    techUsed: [
+      "React Js",
+      "Typescript",
+      "Context Api",
+      "Material Ui",
+      "Formik",
+      "Graph Ql",
+      "aws Amplify",
+      "Html",
+      "CSS",
+    ],
+  },
+  {
+    id: "8",
+    title: "YoEmbryo",
+    description: `The project was a matching platform for embryo donors and receivers, 
+    designed to help users connect, communicate, and find their ideal match securely. 
+    Users completed a series of questionnaire-based inputs, and the system generated personalized 
+    match results, allowing them to chat, send requests, and interact within the platform. 
+   `,
+    role: `As a Frontend Developer, 
+    I was responsible for developing responsive, intuitive UI components using React.js, TypeScript, and Tailwind CSS,
+     ensuring smooth user interactions, real-time updates, and a clean, accessible design that enhanced overall user experience.`,
+    techUsed: [
+      "React Js",
+      "Typescript",
+      "RTK Query",
+      "Tailwind CSS",
+      "Formik",
+      "Daisy Ui",
+      "Html",
+      "CSS",
+      "complex Designs",
+    ],
+  },
 ];
 
 export const routes = [
-  { name: "Home", path: "#home" },
-  { name: "About", path: "#about" },
-  { name: "Projects", path: "#projects" },
-  { name: "Contact", path: "#contact" },
+  { name: "Home", path: "#home", icon: "🏠︎" },
+  { name: "About", path: "#about", icon: "ℹ️" },
+  { name: "Projects", path: "#projects", icon: "✍" },
+  { name: "Contact", path: "#contact", icon: "☎️" },
 ];
 export const techStack = [
-  "React",
+  "React Js",
   "javascript",
   "TypeScript",
   "Next js",
   "Tailwind CSS",
   "Material UI",
-  "firebase",
+  "Cypress",
+  "Redux & RTK Query",
   "expo",
   "React Native",
   "NativeWind",
   "ionic",
   "capacitor",
+  "firebase Notification",
 ];
 
 export const titles = [
-  "Fronted Heavy Full Stack Developer",
+  "Frontend Developer",
   "Web Designer",
   "Cross Platform Developer",
   "Responsive UI Expert",

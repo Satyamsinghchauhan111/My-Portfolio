@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@plugin "daisyui";
 
 /* Modern Portfolio Design System with Glassmorphism & Neumorphism
 All colors MUST be HSL for proper theme integration.

@@ -52,47 +52,22 @@ const Projects = () => {
         </motion.div>
 
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          className=" flex flex-col gap-6 max-w-5xl mx-auto"
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.03 }}
         >
-          {projects.map((project, index) => (
-            <motion.div key={project.id} variants={item}>
-              <Card className="glass glass-hover p-0 border-white/10 h-full flex flex-col overflow-hidden">
-                {/* Image Carousel */}
-                <div className="relative h-52 overflow-hidden">
-                  <Carousel
-                    opts={{
-                      align: "start",
-                      loop: true,
-                    }}
-                    plugins={[
-                      Autoplay({
-                        delay: 3000 + index * 500,
-                        stopOnInteraction: false,
-                      }),
-                    ]}
-                    className="w-full h-full"
-                  >
-                    <CarouselContent className="h-full">
-                      {project.images.map((image, imgIndex) => (
-                        <CarouselItem key={imgIndex} className="h-full">
-                          <div className="relative h-full">
-                            <img
-                              src={image}
-                              alt={`${project.title} preview ${imgIndex + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                            {/* <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" /> */}
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
-                </div>
-
+          {projects.slice(5, 8).map((project, index) => (
+            <motion.div
+              key={project.id}
+              variants={item}
+              className="glass glass-hover rounded-xl"
+            >
+              <Card
+                key={index}
+                className=" p-0  h-full flex flex-col overflow-hidden rounded-xl"
+              >
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex-1">
@@ -114,9 +89,25 @@ const Projects = () => {
                       viewport={{ once: false, amount: 0.8 }}
                       transition={{ delay: 0.2 }}
                     >
-                      <p className="text-foreground/70 mb-4 leading-relaxed max-h-24 overflow-scroll">
+                      <p className="text-foreground/70 mb-4 leading-relaxed ">
                         {project.description}
                       </p>
+                    </motion.div>
+                    <motion.div
+                      className="flex items-center space-x-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <div>
+                        <h4 className="text-sm font-medium text-secondary mb-2">
+                          Role:
+                        </h4>
+                        <p className="text-foreground/70 mb-4 leading-relaxed ">
+                          {project.role}
+                        </p>
+                      </div>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -143,35 +134,39 @@ const Projects = () => {
                   </div>
 
                   <div className="flex gap-3 mt-auto">
-                    <motion.div
-                      className="flex items-center space-x-4 tooltip"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.8 }}
-                      transition={{ delay: 0.2 }}
-                      data-tip="ask permission"
-                    >
-                      <CommonButton
-                        text="GitHub"
-                        variant="primary"
-                        size="sm"
-                        onClick={() => {}}
-                      />
-                    </motion.div>
-                    <motion.div
-                      className="flex items-center space-x-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.8 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      <CommonButton
-                        text="Live Demo"
-                        variant="outline"
-                        size="sm"
-                        onClick={() => window.open(`${project.liveLink}`)}
-                      />
-                    </motion.div>
+                    {project.gitHubLink && (
+                      <motion.div
+                        className="flex items-center space-x-4 tooltip"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.8 }}
+                        transition={{ delay: 0.2 }}
+                        data-tip="ask permission"
+                      >
+                        <CommonButton
+                          text="GitHub"
+                          variant="primary"
+                          size="sm"
+                          onClick={() => {}}
+                        />
+                      </motion.div>
+                    )}
+                    {project.liveLink && (
+                      <motion.div
+                        className="flex items-center space-x-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.8 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        <CommonButton
+                          text="Live Demo"
+                          variant="outline"
+                          size="sm"
+                          onClick={() => window.open(`${project.liveLink}`)}
+                        />
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               </Card>
