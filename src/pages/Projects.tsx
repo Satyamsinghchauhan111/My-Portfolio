@@ -56,7 +56,7 @@ const Projects = () => {
           variants={container}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.03 }}
+          viewport={{ once: true, amount: 0.03 }}
         >
           {projects.slice(5, 8).map((project, index) => (
             <motion.div

@@ -290,7 +290,7 @@ const ResumeContent = () => {
       </div>
       <div className="h-px bg-gray-300 w-full" />
       <div>
-        <ol className=" flex justify-evenly pt-4 pb-6 ">
+        <ol className=" flex justify-evenly flex-wrap pt-4 pb-6 ">
           <li>• Gaming</li>
           <li>• New Technologies/Gadgets</li>
           <li>• Music</li>
