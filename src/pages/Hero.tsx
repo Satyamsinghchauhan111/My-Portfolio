@@ -39,7 +39,7 @@ const Hero = () => {
         variants={container}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="container mx-auto relative z-10 grid md:grid-cols-2  grid-cols-1 px-4 md:px-5 gap-8 md:gap-0"
       >
         <HeroAvatar />

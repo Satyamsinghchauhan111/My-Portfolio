@@ -68,10 +68,7 @@ const About = () => {
             </motion.div>
             {/* About Content */}
 
-            <motion.div
-              variants={slideInRight}
-              className="glass glass-hover rounded-2xl"
-            >
+            <motion.div className="glass glass-hover rounded-2xl">
               <Card className="h-full p-4 md:p-6 border-white/10 hover:border-secondary/30 transition-all duration-500">
                 <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-secondary ">
                   Tech Stack
@@ -87,8 +84,7 @@ const About = () => {
                         scale: 1,
                         transition: { delay: index * 0.1 },
                       }}
-                      viewport={{ once: false, amount: 0.8 }}
-                      whileHover={{ scale: 1.05, rotate: 1 }}
+                      viewport={{ once: true, amount: 0.03 }}
                     >
                       {tech}
                     </motion.span>
@@ -97,10 +93,7 @@ const About = () => {
               </Card>
             </motion.div>
 
-            <motion.div
-              variants={slideInRight}
-              className="glass glass-hover rounded-2xl"
-            >
+            <motion.div className="glass glass-hover rounded-2xl">
               <Card className="relative p-4 md:p-6 border-white/10 hover:border-primary/30 transition-all duration-500">
                 <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-primary ">
                   Who I Am

@@ -2,7 +2,7 @@ import { routes } from "@/utils";
 
 const Fab = () => {
   return (
-    <div className="md:hidden fixed bottom-4 right-3 z-50  ">
+    <div className="fixed bottom-4 right-3 z-50  ">
       <div className="fab fab-flower">
         {/* a focusable div with tabIndex is necessary to work on all browsers. role="button" is necessary for accessibility */}
         <div
@@ -14,7 +14,7 @@ const Fab = () => {
         </div>
 
         {/* Main Action button replaces the original button when FAB is open */}
-        <button className="fab-main-action btn btn-circle btn-lg btn-success">
+        <button className="fab-main-action btn-accent btn btn-circle btn-lg ">
           x
         </button>
 
@@ -24,7 +24,7 @@ const Fab = () => {
           <div key={i}>
             <a
               href={r.path}
-              className="btn btn-lg btn-circle flex justify-center items-center "
+              className="btn btn-lg btn-circle btn-success flex justify-center items-center "
             >
               {r.icon}
             </a>

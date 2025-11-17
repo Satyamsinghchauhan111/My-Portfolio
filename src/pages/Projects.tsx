@@ -61,8 +61,12 @@ const Projects = () => {
           {projects.slice(5, 8).map((project, index) => (
             <motion.div
               key={project.id}
-              variants={item}
+              variants={contactItem}
               className="glass glass-hover rounded-xl"
+              transition={{ delay: 0.02 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.03 }}
             >
               <Card
                 key={index}
@@ -71,35 +75,17 @@ const Projects = () => {
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex-1">
-                    <motion.div
-                      className="flex items-center space-x-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.8 }}
-                      transition={{ delay: 0.2 }}
-                    >
+                    <motion.div className="flex items-center space-x-4">
                       <h3 className="text-xl font-semibold mb-3 text-primary">
                         {project.title}
                       </h3>
                     </motion.div>
-                    <motion.div
-                      className="flex items-center space-x-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.8 }}
-                      transition={{ delay: 0.2 }}
-                    >
+                    <motion.div className="flex items-center space-x-4">
                       <p className="text-foreground/70 mb-4 leading-relaxed ">
                         {project.description}
                       </p>
                     </motion.div>
-                    <motion.div
-                      className="flex items-center space-x-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.8 }}
-                      transition={{ delay: 0.2 }}
-                    >
+                    <motion.div className="flex items-center space-x-4">
                       <div>
                         <h4 className="text-sm font-medium text-secondary mb-2">
                           Role:
@@ -109,12 +95,7 @@ const Projects = () => {
                         </p>
                       </div>
                     </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.8 }}
-                      transition={{ delay: 0.2 }}
-                    >
+                    <motion.div>
                       <div className="mb-6">
                         <h4 className="text-sm font-medium text-secondary mb-2">
                           Tech Used:
@@ -137,10 +118,6 @@ const Projects = () => {
                     {project.gitHubLink && (
                       <motion.div
                         className="flex items-center space-x-4 tooltip"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.8 }}
-                        transition={{ delay: 0.2 }}
                         data-tip="ask permission"
                       >
                         <CommonButton
@@ -152,13 +129,7 @@ const Projects = () => {
                       </motion.div>
                     )}
                     {project.liveLink && (
-                      <motion.div
-                        className="flex items-center space-x-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.8 }}
-                        transition={{ delay: 0.2 }}
-                      >
+                      <motion.div className="flex items-center space-x-4">
                         <CommonButton
                           text="Live Demo"
                           variant="outline"
