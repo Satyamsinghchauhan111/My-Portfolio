@@ -29,7 +29,7 @@ const About = () => {
 
   return (
     <section id="about" className="pb-10 pt-14 relative">
-      <div className="container mx-auto px-6 flex flex-col gap-6">
+      <div className="container mx-auto md:px-6 px-3 flex flex-col gap-6">
         <motion.div
           className="text-center mb-6"
           initial={{ opacity: 0, y: -30 }}

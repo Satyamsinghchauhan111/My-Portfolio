@@ -74,7 +74,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-10 relative">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto md:px-6 px-3 ">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -30 }}

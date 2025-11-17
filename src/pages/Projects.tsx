@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { contactItem, projects } from "@/utils";
+import { contactItem, projects, slideInRight } from "@/utils";
 import { motion } from "framer-motion";
 import {
   Carousel,
@@ -35,7 +35,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="pb-10 pt-14 relative">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto md:px-6 px-3 ">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -63,10 +63,6 @@ const Projects = () => {
               key={project.id}
               variants={contactItem}
               className="glass glass-hover rounded-xl"
-              transition={{ delay: 0.02 }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.03 }}
             >
               <Card
                 key={index}
