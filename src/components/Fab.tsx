@@ -1,10 +1,10 @@
 import { routes } from "@/utils";
 
 const Fab = () => {
+  const bg = ["bg-accent", "bg-primary", "bg-success", "bg-secondary"];
   return (
-    <div className="fixed bottom-4 right-3 z-50  ">
+    <div className="md:hidden fixed bottom-32 right-3 z-50  ">
       <div className="fab fab-flower">
-        {/* a focusable div with tabIndex is necessary to work on all browsers. role="button" is necessary for accessibility */}
         <div
           tabIndex={0}
           role="button"
@@ -13,18 +13,15 @@ const Fab = () => {
           ☰
         </div>
 
-        {/* Main Action button replaces the original button when FAB is open */}
-        <button className="fab-main-action btn-accent btn btn-circle btn-lg ">
+        <button className="fab-main-action btn-accent btn btn-circle btn-lg bg-error text-black transition-all duration-200">
           x
         </button>
-
-        {/* buttons that show up when FAB is open */}
 
         {routes.map((r, i) => (
           <div key={i}>
             <a
               href={r.path}
-              className="btn btn-lg btn-circle btn-success flex justify-center items-center "
+              className={`btn btn-lg btn-circle btn-success flex justify-center items-center ${bg[i]} `}
             >
               {r.icon}
             </a>

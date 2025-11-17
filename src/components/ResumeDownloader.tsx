@@ -42,7 +42,7 @@
 
 import React, { useState } from "react";
 import CommonButton from "./CommonButton";
-import resume from "../assets/projects/satyam-singh-chauhan.pdf"; // Import path is correct
+import resume from "../assets/projects/satyam-singh-chauhan-new.pdf"; // Import path is correct
 
 const ResumeDownloader = () => {
   const [loading, setLoading] = useState(false);
