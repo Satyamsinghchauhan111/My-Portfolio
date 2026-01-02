@@ -26,7 +26,10 @@ const Portfolio = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-white/10">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-foreground/60">© 2025 Satyam</p>
+          <p className="text-foreground/60">
+            © 2025 Satyam Developer. Crafted with ❤️ using React, Typescript,
+            Tailwind CSS & Daisy ui
+          </p>
           <div className="flex gap-5 justify-between opacity-40">
             <button onClick={() => navigate("/dashboard")}>Dashboard</button>
             <button onClick={() => navigate("/study-counter")}>
