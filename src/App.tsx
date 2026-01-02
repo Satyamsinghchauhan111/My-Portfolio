@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Resume from "./pages/Resume";
 import DashBoard from "./pages/DashBoard";
-import Test from "./pages/Test";
 import StudyCounter from "./pages/StudyCounter";
 
 const queryClient = new QueryClient();
@@ -24,7 +23,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="resume" element={<Resume />} />
             <Route path="dashBoard" element={<DashBoard />} />
-            <Route path="test" element={<Test />} />
             <Route path="study-counter" element={<StudyCounter />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
