@@ -1,8 +1,8 @@
 import { FullscreenGroup } from "@/hooks/FullscreenGroup";
-import DashboardHeader from "./DashBoardheader";
 import StorageCard from "./StorageCard";
 import LastFilesCard from "./LastFilesCard";
 import { FullscreenWrapper } from "./FullScreenWrapper";
+import DashboardHeader from "./DashboardHeader";
 
 const DashBoardMain = () => {
   return (
