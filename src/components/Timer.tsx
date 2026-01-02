@@ -3,12 +3,6 @@ import { motion } from "framer-motion";
 
 type Phase = "work" | "break" | "longBreak";
 
-const DURATIONS = {
-  work: 25 * 60,
-  break: 5 * 60,
-  longBreak: 15 * 60,
-};
-
 const STORAGE_KEY = "pomodoro_pro_state";
 
 type PersistedState = {
@@ -16,6 +10,7 @@ type PersistedState = {
   remaining: number;
   isRunning: boolean;
   cycleCount: number;
+  durations: Record<Phase, number>;
   analytics: {
     work: number;
     break: number;
@@ -29,9 +24,17 @@ export default function Timer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [phase, setPhase] = useState<Phase>("work");
-  const [remaining, setRemaining] = useState(DURATIONS.work);
   const [isRunning, setIsRunning] = useState(false);
   const [cycleCount, setCycleCount] = useState(0);
+
+  const [durations, setDurations] = useState<Record<Phase, number>>({
+    work: 25 * 60,
+    break: 5 * 60,
+    longBreak: 15 * 60,
+  });
+
+  const [remaining, setRemaining] = useState(durations.work);
+
   const [analytics, setAnalytics] = useState({
     work: 0,
     break: 0,
@@ -62,6 +65,7 @@ export default function Timer() {
     setRemaining(updatedRemaining);
     setIsRunning(s.isRunning && updatedRemaining > 0);
     setCycleCount(s.cycleCount);
+    setDurations(s.durations);
     setAnalytics(s.analytics);
   }, []);
 
@@ -89,11 +93,12 @@ export default function Timer() {
       remaining,
       isRunning,
       cycleCount,
+      durations,
       analytics,
       lastUpdated: Date.now(),
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  }, [phase, remaining, isRunning, cycleCount, analytics]);
+  }, [phase, remaining, isRunning, cycleCount, durations, analytics]);
 
   const handlePhaseEnd = () => {
     setIsRunning(false);
@@ -107,14 +112,9 @@ export default function Timer() {
     }));
 
     if (phase === "work") {
-      const nextCycle = cycleCount + 1;
-      setCycleCount(nextCycle);
-
-      if (nextCycle % 4 === 0) {
-        switchPhase("longBreak");
-      } else {
-        switchPhase("break");
-      }
+      const next = cycleCount + 1;
+      setCycleCount(next);
+      switchPhase(next % 4 === 0 ? "longBreak" : "break");
     } else {
       switchPhase("work");
     }
@@ -122,7 +122,13 @@ export default function Timer() {
 
   const switchPhase = (p: Phase) => {
     setPhase(p);
-    setRemaining(DURATIONS[p]);
+    setRemaining(durations[p]);
+  };
+
+  const updateDuration = (p: Phase, minutes: number) => {
+    const seconds = Math.max(minutes, 1) * 60;
+    setDurations((d) => ({ ...d, [p]: seconds }));
+    if (phase === p && !isRunning) setRemaining(seconds);
   };
 
   const format = (s: number) => {
@@ -133,28 +139,35 @@ export default function Timer() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950 text-white px-4">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-sm bg-slate-900 rounded-2xl p-6 shadow-xl"
-      >
-        <h1 className="text-center text-xl font-semibold mb-2">
+      <motion.div className="w-full max-w-sm bg-slate-900 rounded-2xl p-6 shadow-xl">
+        <h1 className="text-center text-xl font-semibold mb-4">
           🍅 Pomodoro Pro
         </h1>
 
-        <p className="text-center text-sm text-slate-400 capitalize mb-6">
-          {phase.replace("Break", " Break")}
-        </p>
+        {/* ⏱ Time Inputs */}
+        <div className="grid grid-cols-3 gap-2 mb-5 text-sm">
+          {(["work", "break", "longBreak"] as Phase[]).map((p) => (
+            <div key={p}>
+              <label className="block text-slate-400 mb-1 capitalize">
+                {p === "longBreak" ? "Long" : p}
+              </label>
+              <input
+                type="number"
+                disabled={isRunning}
+                value={Math.floor(durations[p] / 60)}
+                onChange={(e) => updateDuration(p, +e.target.value)}
+                className="w-full rounded-lg bg-slate-800 p-2 text-center"
+              />
+            </div>
+          ))}
+        </div>
 
-        <motion.div
-          key={remaining}
-          initial={{ scale: 0.9 }}
-          animate={{ scale: 1 }}
-          className="text-center text-5xl font-mono mb-6"
-        >
+        {/* Timer */}
+        <div className="text-center text-5xl font-mono mb-6">
           {format(remaining)}
-        </motion.div>
+        </div>
 
+        {/* Controls */}
         <div className="flex gap-3 mb-6">
           <button
             onClick={() => setIsRunning((r) => !r)}
@@ -165,7 +178,7 @@ export default function Timer() {
           <button
             onClick={() => {
               setIsRunning(false);
-              setRemaining(DURATIONS[phase]);
+              setRemaining(durations[phase]);
             }}
             className="px-4 py-3 rounded-xl bg-slate-700"
           >
