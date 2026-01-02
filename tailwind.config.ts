@@ -70,6 +70,17 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "slide-in-left-main": {
+          "0%": {
+            transform: "translateX(-100%)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
+
         "accordion-down": {
           from: {
             height: "0",
@@ -114,6 +125,7 @@ export default {
         "slide-in-right": "slideInFromRight 0.6s ease-out",
         "slide-in-left": "slideInFromLeft 0.6s ease-out",
         "morph-glow": "morphGlow 3s ease-in-out infinite",
+        "slide-in-left-main": "slide-in-left 0.6s ease-out forwards",
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
@@ -122,5 +134,6 @@ export default {
       },
     },
   },
+
   plugins: [require("tailwindcss-animate"), require("daisyui")],
 } satisfies Config;

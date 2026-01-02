@@ -270,3 +270,41 @@ export const container = {
     },
   },
 };
+
+export type SidebarItem = {
+  id: string;
+  label: string;
+  dotColor: string;
+  section?: string;
+};
+
+export const sidebarMenu: SidebarItem[] = [
+  {
+    id: "dashboard",
+    label: "Dashboard",
+    dotColor: "bg-emerald-400",
+    section: "Menu",
+  },
+
+  {
+    id: "marketing",
+    label: "Marketing",
+    dotColor: "bg-amber-400",
+    section: "Folders",
+  },
+  {
+    id: "design",
+    label: "Design",
+    dotColor: "bg-pink-400",
+    section: "Folders",
+  },
+  {
+    id: "webflow",
+    label: "Webflow",
+    dotColor: "bg-sky-400",
+    section: "Folders",
+  },
+
+  { id: "favorites", label: "Favorites", dotColor: "bg-slate-500" },
+  { id: "settings", label: "Settings", dotColor: "bg-slate-500" },
+];
