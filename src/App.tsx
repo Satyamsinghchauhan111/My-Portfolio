@@ -25,7 +25,7 @@ const App = () => (
             <Route path="resume" element={<Resume />} />
             <Route path="dashBoard" element={<DashBoard />} />
             <Route path="test" element={<Test />} />
-            <Route path="*" element={<StudyCounter />} />
+            <Route path="study-counter" element={<StudyCounter />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
