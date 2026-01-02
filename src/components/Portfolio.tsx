@@ -6,8 +6,10 @@ import Projects from "@/pages/Projects";
 import Hero from "@/pages/Hero";
 import Navbar from "./Navbar";
 import Fab from "./Fab";
+import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-[80vh]">
       <Navbar />
@@ -28,6 +30,12 @@ const Portfolio = () => {
             © 2025 Satyam Developer. Crafted with ❤️ using React, Typescript,
             Tailwind CSS & Daisy ui
           </p>
+          <div className="flex gap-5 justify-between opacity-40">
+            <button onClick={() => navigate("/dashboard")}>Dashboard</button>
+            <button onClick={() => navigate("/study-counter")}>
+              Study Counter
+            </button>
+          </div>
         </div>
       </footer>
     </div>
