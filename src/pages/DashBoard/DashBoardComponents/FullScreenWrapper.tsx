@@ -1,14 +1,17 @@
 // FullscreenWrapper.tsx
 import { useFullscreenContext } from "@/hooks/FullscreenGroup";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type FullscreenWrapperProps = {
   children: React.ReactNode | ((isFull: boolean) => React.ReactNode);
-  id: string; // 👈 unique per card inside group
+  id: string;
   className?: string;
-  normalSizeClass?: string; // default size
-  fullSizeClass?: string; // size when "full" inside parent
+  normalSizeClass?: string;
+  fullSizeClass?: string;
   isButtonHide?: boolean;
+
+  // 🔥 NEW: notify when fullscreen changes
+  onFullscreenChange?: (isFull: boolean) => void;
 };
 
 export const FullscreenWrapper: React.FC<FullscreenWrapperProps> = ({
@@ -17,7 +20,8 @@ export const FullscreenWrapper: React.FC<FullscreenWrapperProps> = ({
   className = "",
   isButtonHide,
   normalSizeClass = "",
-  fullSizeClass = "w-full h-[95vh]", // 👈 fills parent instead of vw/vh
+  fullSizeClass = "w-full h-[95vh]",
+  onFullscreenChange,
 }) => {
   const group = useFullscreenContext();
   const [localFull, setLocalFull] = useState(false);
@@ -28,36 +32,47 @@ export const FullscreenWrapper: React.FC<FullscreenWrapperProps> = ({
 
   const sizeClasses = isFull ? fullSizeClass : normalSizeClass;
 
-  const content =
-    typeof children === "function"
-      ? (children as (f: boolean) => React.ReactNode)(isFull)
-      : children;
+  // 🔥 Notify parent / trigger side-effects
+  useEffect(() => {
+    onFullscreenChange?.(isFull);
+  }, [isFull, onFullscreenChange]);
 
   const handleClick = () => {
     if (group) {
-      // toggle inside group
-      if (group.activeId === id) {
-        group.setActiveId(null); // collapse
-      } else {
-        group.setActiveId(id); // make this full
-      }
+      group.setActiveId(group.activeId === id ? null : id);
     } else {
-      // standalone mode (no group)
       setLocalFull((prev) => !prev);
     }
   };
 
-  // If some other card is full, hide this one completely
-  if (isOtherFull) {
-    return null; // or <div className="hidden" /> if you prefer
-  }
+  // 🔥 Smart children handling
+  const content = (() => {
+    // Render-prop
+    if (typeof children === "function") {
+      return children(isFull);
+    }
+
+    // Inject isFull into a single React element
+    if (React.isValidElement(children)) {
+      return React.cloneElement(
+        children as React.ReactElement<{ isFull?: boolean }>,
+        { isFull }
+      );
+    }
+
+    return children;
+  })();
+
+  // Hide if another card is fullscreen
+  if (isOtherFull) return null;
 
   return (
     <div
       className={`
         relative
         group
-        animate-slide-in-right w-full
+        animate-slide-in-right
+        w-full
         origin-center
         cursor-pointer
         transition-[width,height] duration-500 ease-in-out
@@ -65,14 +80,18 @@ export const FullscreenWrapper: React.FC<FullscreenWrapperProps> = ({
         ${sizeClasses} ${className}
       `}
     >
-      {isButtonHide ? null : (
+      {!isButtonHide && (
         <div
-          className="hidden  absolute group-hover:flex group-focus:flex justify-center items-center cursor-pointer top-4 right-4 rounded-full bg-teal-500 h-8 text-white w-8"
+          className="hidden absolute group-hover:flex group-focus:flex
+          justify-center items-center cursor-pointer
+          top-4 right-4 rounded-full
+          bg-teal-500 h-8 w-8 text-white"
           onClick={handleClick}
         >
           ⛶
         </div>
       )}
+
       {content}
     </div>
   );

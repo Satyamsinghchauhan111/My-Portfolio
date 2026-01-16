@@ -8,7 +8,7 @@ const DashBoardMain = ({ hidden }: { hidden: boolean }) => {
   return (
     <FullscreenGroup>
       <div
-        className={`h-screen sm:flex sm:flex-col sm:justify-between overflow-scroll bg-slate-100 w-full sm:p-6 px-2 py-6  ${
+        className={`h-screen  sm:flex sm:flex-col sm:justify-between overflow-hidden bg-slate-100 w-full sm:p-6 px-2 py-6  transition-all duration-1000 ${
           hidden ? "sm:rounded-l-[36px] rounded-none" : "rounded-l-[36px] "
         } animate-slide-in-right text-black`}
       >
