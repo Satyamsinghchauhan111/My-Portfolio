@@ -6,7 +6,7 @@ const DesignPage = () => {
     <FullscreenGroup>
       <div className="h-screen overflow-scroll bg-emerald-50 w-full p-5 rounded-l-[36px] animate-slide-in-right text-black">
         {/* Header */}
-        <FullscreenWrapper id="de-1">
+        <FullscreenWrapper id="de-1" isButtonHide>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <div className="flex items-center gap-3 mb-1">

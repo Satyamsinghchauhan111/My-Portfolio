@@ -45,7 +45,7 @@ const DashboardHeader = () => {
       </div>
 
       {/* Folder cards row */}
-      <div className="flex gap-4 overflow-x-auto pb-1">
+      <div className="flex gap-4 max-sm:flex-wrap max-sm:justify-around pb-1">
         <div className="min-w-[140px] rounded-2xl bg-emerald-100 px-4 py-5 flex flex-col justify-between">
           <div className="text-[11px] text-slate-500 mb-2">01</div>
           <div className="font-semibold text-slate-800 mb-1">Marketing</div>
@@ -56,11 +56,11 @@ const DashboardHeader = () => {
           <div className="font-semibold text-slate-800 mb-1">Branding</div>
           <div className="text-[11px] text-slate-500">124 MB</div>
         </div>
-        <div className="min-w-[140px] rounded-2xl bg-slate-200 border border-dashed border-slate-300 px-4 py-5 flex items-center justify-center text-xs text-slate-500">
-          + New Folder
-        </div>
         <div className="min-w-[140px] rounded-2xl bg-orange-300 px-4 py-5 flex items-center justify-center text-sm font-semibold text-white">
           Your Gallery
+        </div>
+        <div className="min-w-[140px] rounded-2xl bg-slate-200 border border-dashed border-slate-300 px-4 py-5 flex items-center justify-center text-xs text-slate-500">
+          + New Folder
         </div>
       </div>
     </div>

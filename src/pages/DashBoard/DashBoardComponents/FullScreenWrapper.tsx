@@ -8,13 +8,15 @@ type FullscreenWrapperProps = {
   className?: string;
   normalSizeClass?: string; // default size
   fullSizeClass?: string; // size when "full" inside parent
+  isButtonHide?: boolean;
 };
 
 export const FullscreenWrapper: React.FC<FullscreenWrapperProps> = ({
   children,
   id,
   className = "",
-  normalSizeClass = "w-96 h-96",
+  isButtonHide,
+  normalSizeClass = "",
   fullSizeClass = "w-full h-[95vh]", // 👈 fills parent instead of vw/vh
 }) => {
   const group = useFullscreenContext();
@@ -55,7 +57,6 @@ export const FullscreenWrapper: React.FC<FullscreenWrapperProps> = ({
       className={`
         relative
         group
-        p-6
         animate-slide-in-right w-full
         origin-center
         cursor-pointer
@@ -64,12 +65,14 @@ export const FullscreenWrapper: React.FC<FullscreenWrapperProps> = ({
         ${sizeClasses} ${className}
       `}
     >
-      <div
-        className="hidden  absolute group-hover:flex group-focus:flex justify-center items-center cursor-pointer top-4 right-4 rounded-full bg-teal-500 h-8 text-white w-8"
-        onClick={handleClick}
-      >
-        ⛶
-      </div>
+      {isButtonHide ? null : (
+        <div
+          className="hidden  absolute group-hover:flex group-focus:flex justify-center items-center cursor-pointer top-4 right-4 rounded-full bg-teal-500 h-8 text-white w-8"
+          onClick={handleClick}
+        >
+          ⛶
+        </div>
+      )}
       {content}
     </div>
   );

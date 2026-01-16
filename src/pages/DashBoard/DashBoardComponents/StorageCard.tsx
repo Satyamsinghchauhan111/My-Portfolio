@@ -4,7 +4,7 @@ import { FullscreenWrapper } from "./FullScreenWrapper";
 const StorageCard = () => {
   return (
     <FullscreenWrapper id="main-1">
-      <div className="bg-white rounded-3xl p-6 shadow-sm h-[95%] w-full m-2">
+      <div className="bg-white rounded-3xl p-6 shadow-sm h-[95%] w-full ">
         <h2 className="text-sm font-semibold text-slate-900 mb-4">Storage</h2>
 
         <div className="flex items-center gap-6">

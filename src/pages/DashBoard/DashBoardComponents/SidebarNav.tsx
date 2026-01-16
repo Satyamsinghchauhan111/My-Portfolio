@@ -2,7 +2,11 @@
 import { sidebarMenu } from "@/utils";
 import { useEffect, useState } from "react";
 
-const SidebarNav = () => {
+const SidebarNav = ({
+  setHidden,
+}: {
+  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const getHash = () => window.location.hash.replace("#", "") || "dashboard";
 
   const [active, setActive] = useState<string>(getHash());
@@ -37,7 +41,9 @@ const SidebarNav = () => {
               .map((item) => (
                 <li key={item.id}>
                   <button
-                    onClick={() => handleClick(item.id)}
+                    onClick={() => {
+                      return handleClick(item.id), setHidden(true);
+                    }}
                     className={`
                       w-full flex items-center gap-3 px-3 py-2 rounded-xl transition
                       ${

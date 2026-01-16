@@ -292,18 +292,6 @@ export const sidebarMenu: SidebarItem[] = [
     dotColor: "bg-amber-400",
     section: "Folders",
   },
-  {
-    id: "design",
-    label: "Design",
-    dotColor: "bg-pink-400",
-    section: "Folders",
-  },
-  {
-    id: "webflow",
-    label: "Webflow",
-    dotColor: "bg-sky-400",
-    section: "Folders",
-  },
 
   { id: "favorites", label: "Favorites", dotColor: "bg-slate-500" },
   { id: "settings", label: "Settings", dotColor: "bg-slate-500" },

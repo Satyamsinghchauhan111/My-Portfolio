@@ -1,10 +1,14 @@
 import { FullscreenGroup } from "@/hooks/FullscreenGroup";
 import { FullscreenWrapper } from "./FullScreenWrapper";
 
-const MarketingPage = () => {
+const MarketingPage = ({ hidden }: { hidden: boolean }) => {
   return (
     <FullscreenGroup>
-      <div className="h-screen overflow-scroll bg-emerald-50 w-full p-5 rounded-l-[36px] animate-slide-in-right text-black">
+      <div
+        className={`h-screen overflow-scroll bg-emerald-50 w-full p-5 ${
+          hidden ? "sm:rounded-l-[36px] rounded-none" : "rounded-l-[36px] "
+        }  animate-slide-in-right text-black`}
+      >
         {/* Header */}
         <FullscreenWrapper id="m-3">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

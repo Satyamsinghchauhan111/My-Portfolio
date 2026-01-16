@@ -26,6 +26,12 @@ const files = [
     date: "Nov 9, 2021",
     avatars: ["G", "H"],
   },
+  {
+    name: "Character Illustration.zip",
+    typeColor: "bg-rose-400",
+    date: "Nov 9, 2021",
+    avatars: ["G", "H"],
+  },
 ];
 
 const LastFilesCard = () => {

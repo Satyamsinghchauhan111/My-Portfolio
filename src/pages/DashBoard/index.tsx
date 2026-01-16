@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import DashBoardMain from "./DashBoardComponents/DashBoardMain";
 import DashBoardSideBar from "./DashBoardComponents/DashBoardSideBar";
 import MarketingPage from "./DashBoardComponents/MarketingPage";
-import DesignPage from "./DashBoardComponents/DesignPage";
-import WebFlowPage from "./DashBoardComponents/WebFlowPage";
-type Section = "dashboard" | "marketing" | "design" | "webflow";
+import { log } from "console";
+
+type Section = "dashboard" | "marketing";
 
 const getSectionFromHash = (): Section => {
   if (typeof window === "undefined") return "dashboard";
@@ -13,7 +13,9 @@ const getSectionFromHash = (): Section => {
 };
 
 const DashBoard = () => {
+  const [hidden, setHidden] = useState(true);
   const [section, setSection] = useState<Section>("dashboard");
+  console.log(hidden);
 
   // Sync with hash changes (when clicking sidebar links)
   useEffect(() => {
@@ -24,16 +26,12 @@ const DashBoard = () => {
   }, []);
 
   return (
-    <div className="bg-slate-800 ">
+    <div className="bg-slate-800   transition-all duration-500 w-screen">
       <div className="flex">
-        <DashBoardSideBar />
+        <DashBoardSideBar setHidden={setHidden} hidden={hidden} />
         <div className="w-full">
-          {section === "dashboard" && <DashBoardMain />}
-
-          {section === "marketing" && <MarketingPage />}
-
-          {section === "design" && <DesignPage />}
-          {section === "webflow" && <WebFlowPage />}
+          {section === "dashboard" && <DashBoardMain hidden={hidden} />}
+          {section === "marketing" && <MarketingPage hidden={hidden} />}
         </div>
       </div>
     </div>
