@@ -8,7 +8,6 @@ const StorageCard = () => {
       {(isFull) => (
         <div className="bg-white overflow-scroll rounded-3xl p-6 shadow-sm h-[95%] w-full  ">
           <h2 className="text-sm font-semibold text-slate-900 mb-4">Storage</h2>
-          <p>https://limewire.com/d/UGZR9#ASpWmWL9kG</p>
 
           <div className="flex items-center gap-6 ">
             {/* Donut placeholder */}
