@@ -32,9 +32,7 @@ const Portfolio = () => {
           </p>
           <div className="flex gap-5 justify-between opacity-40">
             <button onClick={() => navigate("/dashboard")}>Dashboard</button>
-            <button onClick={() => navigate("/study-counter")}>
-              Study Counter
-            </button>
+            <button onClick={() => navigate("/practice")}>practice</button>
           </div>
         </div>
       </footer>

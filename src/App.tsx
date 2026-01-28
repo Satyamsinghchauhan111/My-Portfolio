@@ -9,6 +9,9 @@ import NotFound from "./pages/NotFound";
 import Resume from "./pages/Resume";
 import DashBoard from "./pages/DashBoard";
 import StudyCounter from "./pages/StudyCounter";
+import Todo from "./pages/Practice/Todo";
+import Pagination from "./pages/Practice/Pagination";
+import FormValidation from "./pages/Practice/FormValidation";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +26,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="resume" element={<Resume />} />
             <Route path="dashBoard" element={<DashBoard />} />
+            <Route path="practice" element={<FormValidation />} />
             <Route path="study-counter" element={<StudyCounter />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
