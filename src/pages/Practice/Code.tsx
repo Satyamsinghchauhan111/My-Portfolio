@@ -2,176 +2,181 @@ const Code = () => {
   return (
     <div className="mockup-code w-full">
       <pre data-prefix="$">
-        <code>{`import React, { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import DialogContainer from './DialogContainer';
-
-type ProviderContext = {
-  openDialog: (option: DialogOption) => void;
-  closeDialog: () => void;
-  isAnyModalOpen: boolean;
-};
-
-const EMPTY_FUNC = () => {};
-const DialogContext = React.createContext<ProviderContext>({
-  openDialog: EMPTY_FUNC,
-  closeDialog: EMPTY_FUNC,
-  isAnyModalOpen: false,
-});
-
-export const useDialog = () => React.useContext(DialogContext);
-
-export type DialogParams = {
-  children: React.ReactNode;
-  open: boolean;
-  onClose?: () => void;
-};
-
-export type DialogOption = Omit<DialogParams, 'open'>;
-export type DialogContainerProps = DialogParams & {
-  onClose: () => void;
-};
-
-const DialogProvider = ({ children }: { children: React.JSX.Element }) => {
-  const location = useLocation();
-  const dialogsRef = useRef<DialogParams[]>([]);
-  const dialogsToUpdate = dialogsRef.current;
-  const [isAnyModalOpen, setIsAnyModalOpen] = useState(false);
-
-  useEffect(() => {
-    closeDialog();
-  }, [location.pathname, location.hash, location.search]); // Close dialog when location changes
-
-  const createDialog = (option: DialogOption) => {
-    dialogsRef.current = dialogsToUpdate.map((dialog) => ({
-      ...dialog,
-      open: false, // Close all existing dialogs
-    }));
-
-    const newDialog = { ...option, open: true };
-    dialogsRef.current.push(newDialog);
-    // Ensure state is updated with the new dialogs
-    setDialogs([...dialogsRef.current]);
-    setIsAnyModalOpen(true);
-  };
-
-  const closeDialog = () => {
-    dialogsRef.current = dialogsToUpdate.map((dialog) => ({
-      ...dialog,
-      open: false,
-    }));
-
-    setDialogs([...dialogsRef.current]);
-    if (isAnyModalOpen) {
-      setIsAnyModalOpen(false);
-    }
-  };
-
-  const [dialogs, setDialogs] = useState<DialogParams[]>(dialogsRef.current);
-
-  //I replaced useRef with useState because useState is more suitable for managing dynamic state that affects rendering, ensuring isAnyModalOpen accurately represents whether any modal is open.
-  const contextValue = {
-    openDialog: createDialog,
-    closeDialog,
-    isAnyModalOpen,
-  } as ProviderContext;
-
-  return (
-    <DialogContext.Provider value={contextValue}>
-      {children}
-      {dialogs.map((dialog, i) => {
-        const { ...dialogParams } = dialog;
-
-        return <DialogContainer key={i} onClose={closeDialog} {...dialogParams} />;
-      })}
-    </DialogContext.Provider>
-  );
-};
-
-export default DialogProvider;
-`}</code>
+        <code>
+          {
+            // import { NextResponse } from 'next/server'
+            // export default async function middleware(request) {
+            //   const { pathname, search } = request.nextUrl
+            //   // 1️⃣ Rewrite API calls to backend
+            //   if (pathname.startsWith('/api')) {
+            //     const url = request.nextUrl.clone()
+            //     url.host = 'localhost'
+            //     url.port = '9000'
+            //     url.protocol = 'http'
+            //     return NextResponse.rewrite(url)
+            //   }
+            //   const authCookie = request.cookies.get('connect.sid')
+            //   const otpCookie = request.cookies.get('otp_verified')
+            //   // 2️⃣ Public routes
+            //   if (
+            //     pathname === '/' ||
+            //     pathname.startsWith('/login') ||
+            //     pathname.startsWith('/legal')
+            //   ) {
+            //     return NextResponse.next()
+            //   }
+            //   let isAuthenticated = false
+            //   // 3️⃣ Validate session if cookie exists
+            //   if (authCookie) {
+            //     try {
+            //       const res = await fetch(
+            //         `${process.env.PROD_URL}/api/auth/session`,
+            //         {
+            //           headers: {
+            //             Cookie: `${authCookie.name}=${authCookie.value}`,
+            //           },
+            //           cache: 'no-store',
+            //         }
+            //       )
+            //       if (res.ok) {
+            //         const data = await res.json()
+            //         if (data?.code === 'SESSION_VALID') {
+            //           isAuthenticated = true
+            //         }
+            //       }
+            //     } catch (error) {
+            //       console.error('Session check failed', error)
+            //     }
+            //   }
+            //   const isOtpVerified = otpCookie?.value === 'true'
+            //   // 4️⃣ Block unauthenticated users
+            //   if (!isAuthenticated) {
+            //     const loginUrl = new URL('/', request.url)
+            //     loginUrl.searchParams.set(
+            //       'redirect',
+            //       encodeURIComponent(pathname + search)
+            //     )
+            //     return NextResponse.redirect(loginUrl)
+            //   }
+            //   // 5️⃣ OTP not verified
+            //   if (isAuthenticated && !isOtpVerified) {
+            //     return NextResponse.redirect(new URL('/', request.url))
+            //   }
+            //   // 6️⃣ Logged-in user on login page
+            //   if (isAuthenticated && pathname === '/') {
+            //     return NextResponse.redirect(
+            //       new URL('/dashboard', request.url)
+            //     )
+            //   }
+            //   return NextResponse.next()
+            // }
+            // export const config = {
+            //   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+            // }
+          }
+        </code>
       </pre>
       <pre data-prefix=">" className="text-warning">
-        <code>{`import { DialogContainerProps } from "./DialogProvider";
+        <code>
+          {`import { configureStore } from '@reduxjs/toolkit'
+import { apiSlice } from './apiSlice'
 
-const DialogContainer = (props: DialogContainerProps) => {
-  const { children, ...dialogParams } = props;
-
-  return (
-    <div className={modal {dialogParams.open ? "modal-open" : ""}}>
-      {children}
-    </div>
-  );
-};
-
-export default DialogContainer;
-`}</code>
-      </pre>
-      ; ========================
-      <pre>
-        <code>{`import Modal, { TModalProps } from '.';
-
-const ModalProvider = ({ children, ...props }: TModalProps) => {
-  return <Modal {...props}>{children}</Modal>;
-};
-export default ModalProvider;
-`}</code>
+export const store = configureStore({
+  reducer: {
+    [apiSlice.reducerPath]: apiSlice.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware),
+})
+`}
+        </code>
       </pre>
       <pre>
-        <code>{`import React from 'react';
-import ModalCloseIcon from './ModalCloseIcon';
-export type TModalProps = {
-  children: React.JSX.Element;
-  className?: string;
-  hideCloseIcon?: boolean;
-  fullWidth?: boolean;
-};
-const Modal = ({ children, className, hideCloseIcon, fullWidth }: TModalProps) => {
-  return (
-    <div
-      className={{
-        fullWidth
-          ? 'h-[calc(100vh-80px)] sm:w-[calc(100vw-40px)] w-screen pb-4 pt-10'
-          : 'max-h-[calc(100vh-40px)] w-full max-w-xl py-12'
-      } max-xs:px-4 xs:px-7 mx-auto bg-cultured-100 overflow-auto rounded-md relative text-left gap-10 {className}}
-      data-cy='product-edit-modal'
-    >
-      {!hideCloseIcon && (
-        <div className='w-100 static bg-cultured-100 top-0 z-50'>
-          <ModalCloseIcon />
-        </div>
-      )}
-      <div className='mt-4'>{children}</div>
-    </div>
-  );
-};
+        <code>
+          {`'use client'
 
-export default Modal;
-`}</code>
+import { Provider } from 'react-redux'
+import { store } from '@/store'
+
+export default function Providers({ children }) {
+  return <Provider store={store}>{children}</Provider>
+}
+`}
+        </code>
       </pre>
       <pre>
-        <code>{`<InformationCircleIcon
-      className='h-4 w-4 cursor-pointer'
-      onClick={() => {
-        openDialog({
-          children: (
-            <ModalProvider
-              children={
-                <ConfirmationModal
-                  hideCancelButton={true}
-                  submitButtonName='Ok'
-                  content={info}
-                  onSubmit={() => {
-                    closeDialog();
-                  }}
-                />
-              }
-            />
-          ),
-        });
-      }}
-    />`}</code>
+        <code>
+          {/* import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+
+export const apiSlice = createApi({
+  reducerPath: 'api',
+
+  baseQuery: fetchBaseQuery({
+    baseUrl: '/api',
+    credentials: 'include', // cookies go automatically
+  }),
+
+  tagTypes: ['Store'],
+
+  endpoints: (builder) => ({
+
+    // 1️⃣ GET ALL STORES
+    getStores: builder.query({
+      query: () => '/store',
+      keepUnusedDataFor: 300,
+      providesTags: ['Store'],
+    }),
+
+    // 2️⃣ GET STORE BY ID
+    getStoreById: builder.query({
+      query: (id) => `/store/${id}`,
+      providesTags: (result, error, id) => [{ type: 'Store', id }],
+    }),
+
+    // 3️⃣ CREATE STORE
+    createStore: builder.mutation({
+      query: (body) => ({
+        url: '/store',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Store'],
+    }),
+
+    // 4️⃣ UPDATE STORE
+    updateStore: builder.mutation({
+      query: ({ id, body }) => ({
+        url: `/store/${id}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: (result, error, { id }) => [
+        { type: 'Store', id },
+      ],
+    }),
+
+    // 5️⃣ DELETE STORE
+    deleteStore: builder.mutation({
+      query: (id) => ({
+        url: `/store/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Store'],
+    }),
+
+  }),
+})
+
+export const {
+  useGetStoresQuery,
+  useGetStoreByIdQuery,
+  useCreateStoreMutation,
+  useUpdateStoreMutation,
+  useDeleteStoreMutation,
+} = apiSlice */}
+        </code>
       </pre>
+      ;
     </div>
   );
 };
