@@ -1,183 +1,167 @@
 const Code = () => {
   return (
     <div className="mockup-code w-full">
-      <pre data-prefix="$">
+      <pre>
         <code>
-          {`
-            import { NextResponse } from 'next/server'
-            export default async function middleware(request) {
-              const { pathname, search } = request.nextUrl
-              // 1️⃣ Rewrite API calls to backend
-              if (pathname.startsWith('/api')) {
-                const url = request.nextUrl.clone()
-                url.host = 'localhost'
-                url.port = '9000'
-                url.protocol = 'http'
-                return NextResponse.rewrite(url)
-              }
-              const authCookie = request.cookies.get('connect.sid')
-              const otpCookie = request.cookies.get('otp_verified')
-              // 2️⃣ Public routes
-              if (
-                pathname === '/' ||
-                pathname.startsWith('/login') ||
-                pathname.startsWith('/legal')
-              ) {
-                return NextResponse.next()
-              }
-              let isAuthenticated = false
-              // 3️⃣ Validate session if cookie exists
-              if (authCookie) {
-                try {
-                  const res = await fetch(
-                     \`\${process.env.PROD_URL}/api/auth/session\`,
-        {
-          headers: {
-            Cookie: \`\${authCookie.name}=\${authCookie.value}\`,
-          },
-          cache: 'no-store',
-        }
-      )
-                  if (res.ok) {
-                    const data = await res.json()
-                    if (data?.code === 'SESSION_VALID') {
-                      isAuthenticated = true
-                    }
-                  }
-                } catch (error) {
-                  console.error('Session check failed', error)
-                }
-              }
-              const isOtpVerified = otpCookie?.value === 'true'
-              // 4️⃣ Block unauthenticated users
-              if (!isAuthenticated) {
-                const loginUrl = new URL('/', request.url)
-                loginUrl.searchParams.set(
-                  'redirect',
-                  encodeURIComponent(pathname + search)
-                )
-                return NextResponse.redirect(loginUrl)
-              }
-              // 5️⃣ OTP not verified
-              if (isAuthenticated && !isOtpVerified) {
-                return NextResponse.redirect(new URL('/', request.url))
-              }
-              // 6️⃣ Logged-in user on login page
-              if (isAuthenticated && pathname === '/') {
-                return NextResponse.redirect(
-                  new URL('/dashboard', request.url)
-                )
-              }
-              return NextResponse.next()
-            }
-            export const config = {
-              matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
-            }
-          }`}
-        </code>
-      </pre>
-      <pre data-prefix=">" className="text-warning">
-        <code>
-          {`import { configureStore } from '@reduxjs/toolkit'
-import { apiSlice } from './apiSlice'
+          {`import React, { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import DrawerContainer from './DrawerContainer';
 
-export const store = configureStore({
-  reducer: {
-    [apiSlice.reducerPath]: apiSlice.reducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware),
-})
+type DrawerPosition = 'left' | 'right';
+
+export type DrawerParams = {
+  children: React.ReactNode;
+  open: boolean;
+  position?: DrawerPosition;
+};
+
+export type DrawerOption = Omit<DrawerParams, 'open'>;
+
+type ProviderContext = {
+  openDrawer: (option: DrawerOption) => void;
+  closeDrawer: () => void;
+  isAnyDrawerOpen: boolean;
+};
+
+const EMPTY_FUNC = () => {};
+
+const DrawerContext = React.createContext<ProviderContext>({
+  openDrawer: EMPTY_FUNC,
+  closeDrawer: EMPTY_FUNC,
+  isAnyDrawerOpen: false,
+});
+
+export const useDrawer = () => React.useContext(DrawerContext);
+
+const DrawerProvider = ({ children }: { children: React.JSX.Element }) => {
+  const location = useLocation();
+
+  const drawersRef = useRef<DrawerParams[]>([]);
+  const [drawers, setDrawers] = useState<DrawerParams[]>([]);
+  const [isAnyDrawerOpen, setIsAnyDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    closeDrawer();
+  }, [location.pathname, location.search, location.hash]);
+
+  const openDrawer = (option: DrawerOption) => {
+    drawersRef.current = drawersRef.current.map((d) => ({
+      ...d,
+      open: false,
+    }));
+
+    drawersRef.current.push({
+      ...option,
+      open: true,
+      position: option.position ?? 'right',
+    });
+
+    setDrawers([...drawersRef.current]);
+    setIsAnyDrawerOpen(true);
+  };
+
+  const closeDrawer = () => {
+    drawersRef.current = drawersRef.current.map((d) => ({
+      ...d,
+      open: false,
+    }));
+
+    setDrawers([...drawersRef.current]);
+    setIsAnyDrawerOpen(false);
+  };
+
+  return (
+    <DrawerContext.Provider
+      value={{
+        openDrawer,
+        closeDrawer,
+        isAnyDrawerOpen,
+      }}
+    >
+      {children}
+
+      {drawers.map((drawer, i) => (
+        <DrawerContainer
+          key={i}
+          open={drawer.open}
+          position={drawer.position}
+          onClose={closeDrawer}
+        >
+          {drawer.children}
+        </DrawerContainer>
+      ))}
+    </DrawerContext.Provider>
+  );
+};
+
+export default DrawerProvider;
 `}
         </code>
       </pre>
       <pre>
         <code>
-          {`'use client'
+          {`type DrawerContainerProps = {
+  open: boolean;
+  position?: 'left' | 'right';
+  onClose: () => void;
+  children: React.ReactNode;
+};
 
-import { Provider } from 'react-redux'
-import { store } from '@/store'
+const DrawerContainer = ({
+  open,
+  position = 'right',
+  onClose,
+  children,
+}: DrawerContainerProps) => {
+  return (
+    <div className={drawer {open ? 'drawer-open' : ''}}>
+      <input type="checkbox" className="drawer-toggle" checked={open} readOnly />
 
-export default function Providers({ children }) {
-  return <Provider store={store}>{children}</Provider>
-}
+      <div className="drawer-side z-50">
+        <label className="drawer-overlay" onClick={onClose}></label>
+
+        <div
+          className={bg-base-100 w-80 sm:w-96 min-h-full p-4 {
+            position === 'left' ? 'left-0' : 'right-0'
+          }}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DrawerContainer;
 `}
         </code>
       </pre>
       <pre>
+        <code>{`onClick={() =>
+        openDrawer({
+          position: 'right',
+          children: (
+            <div>
+              <h2 className="text-lg font-semibold">My Drawer</h2>
+              <button onClick={closeDrawer} className="btn btn-sm mt-4">
+                Close
+              </button>
+            </div>
+          ),
+        })
+      }`}</code>
+      </pre>
+
+      <pre>
         <code>
-          {`import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
-export const apiSlice = createApi({
-  reducerPath: 'api',
-
-  baseQuery: fetchBaseQuery({
-    baseUrl: '/api',
-    credentials: 'include', // cookies go automatically
-  }),
-
-  tagTypes: ['Store'],
-
-  endpoints: (builder) => ({
-
-    // 1️⃣ GET ALL STORES
-    getStores: builder.query({
-      query: () => '/store',
-      keepUnusedDataFor: 300,
-      providesTags: ['Store'],
-    }),
-
-    // 2️⃣ GET STORE BY ID
-    getStoreById: builder.query({
-      query: (id) => \`/store/\${id}\`,
-      providesTags: (result, error, id) => [{ type: 'Store', id }],
-    }),
-
-    // 3️⃣ CREATE STORE
-    createStore: builder.mutation({
-      query: (body) => ({
-        url: '/store',
-        method: 'POST',
-        body,
-      }),
-      invalidatesTags: ['Store'],
-    }),
-
-    // 4️⃣ UPDATE STORE
-    updateStore: builder.mutation({
-      query: ({ id, body }) => ({
-        url: \`/store/\${id}\`,
-        method: 'PUT',
-        body,
-      }),
-      invalidatesTags: (result, error, { id }) => [
-        { type: 'Store', id },
-      ],
-    }),
-
-    // 5️⃣ DELETE STORE
-    deleteStore: builder.mutation({
-      query: (id) => ({
-        url: \`/store/\${id}\`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: ['Store'],
-    }),
-
-  }),
-})
-
-export const {
-  useGetStoresQuery,
-  useGetStoreByIdQuery,
-  useCreateStoreMutation,
-  useUpdateStoreMutation,
-  useDeleteStoreMutation,
-} = apiSlice
+          {`<DrawerProvider>
+  <DialogProvider>
+    <App />
+  </DialogProvider>
+</DrawerProvider>
 `}
         </code>
       </pre>
-      ;
     </div>
   );
 };
