@@ -2,13 +2,13 @@ import coolGuy from "/src/assets/hero-withoutbghd.png";
 import react from "/src/assets/logos/react-01.png";
 import mui from "/src/assets/logos/mui.png";
 import tailwind from "/src/assets/logos/tailwind.png";
-import js from "/src/assets/logos/js.png";
+import js from "/src/assets/logos/js-square.svg";
 import redux from "/src/assets/logos/redux.png";
 import typescript from "/src/assets/logos/typescript.png";
 import firebase from "/src/assets/logos/firebase.webp";
 import next from "/src/assets/logos/next.png";
-import daisyui from "/src/assets/logos/daisyui.png";
-import cypress from "/src/assets/logos/cypress.svg";
+import daisyui from "/src/assets/logos/daisyui-square.svg";
+import cypress from "/src/assets/logos/cypress-white.svg";
 import css from "/src/assets/logos/css-3.png";
 import html from "/src/assets/logos/html.png";
 import { motion } from "framer-motion";
@@ -38,7 +38,7 @@ const HeroAvatar = () => {
               <div className="glass glass-hover rounded-xl p-1.5 sm:p-2 shadow-lg shadow-primary/10">
                 <img
                   src={next}
-                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  className="w-6 h-6 sm:w-8 sm:h-8 rounded-sm"
                   alt="Next.js"
                 />
               </div>
@@ -59,17 +59,17 @@ const HeroAvatar = () => {
           </div>
 
           {/* 60° - DaisyUI */}
-          <div className="absolute left-[93.3%] top-[25%] -translate-x-1/2 -translate-y-1/2">
+          {/* <div className="absolute left-[93.3%] top-[25%] -translate-x-1/2 -translate-y-1/2">
             <div className="animate-float" style={{ animationDelay: "1s" }}>
               <div className="glass glass-hover rounded-xl p-1.5 sm:p-2 shadow-lg shadow-primary/10">
                 <img
                   src={daisyui}
-                  className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg"
+                  className="w-6 h-6 sm:w-8 sm:h-8"
                   alt="DaisyUI"
                 />
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Right (90°) - JavaScript */}
           <div className="absolute left-full top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -77,21 +77,8 @@ const HeroAvatar = () => {
               <div className="glass glass-hover rounded-xl p-1.5 sm:p-2 shadow-lg shadow-primary/10">
                 <img
                   src={js}
-                  className="w-6 h-6 sm:w-8 sm:h-8 object"
-                  alt="JavaScript"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* 120° - Cypress */}
-          <div className="absolute left-[93.3%] top-[75%] -translate-x-1/2 -translate-y-1/2">
-            <div className="animate-float" style={{ animationDelay: "2s" }}>
-              <div className="glass glass-hover rounded-xl p-1.5 sm:p-2 shadow-lg shadow-primary/10">
-                <img
-                  src={cypress}
                   className="w-6 h-6 sm:w-8 sm:h-8"
-                  alt="Cypress"
+                  alt="JavaScript"
                 />
               </div>
             </div>
