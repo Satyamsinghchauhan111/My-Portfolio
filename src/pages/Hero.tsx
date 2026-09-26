@@ -40,7 +40,7 @@ const Hero = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
 
       <div className="container mx-auto relative z-10 px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
           {/* Left - Text Content */}
           <motion.div
             variants={container}
@@ -130,7 +130,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center"
+            className="order-1 lg:order-2 flex justify-center w-full overflow-visible px-2 sm:px-0"
           >
             <HeroAvatar />
           </motion.div>

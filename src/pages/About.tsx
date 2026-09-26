@@ -19,7 +19,7 @@ const About = () => {
     {
       icon: <Briefcase className="w-5 h-5" />,
       title: "5+ Years Experience",
-      description: "Professional frontend development",
+      description: "Across operations & development",
     },
     {
       icon: <Rocket className="w-5 h-5" />,
@@ -33,8 +33,8 @@ const About = () => {
     },
     {
       icon: <Award className="w-5 h-5" />,
-      title: "Modern Stack",
-      description: "React, Next.js, TypeScript & more",
+      title: "Career Pivot",
+      description: "From operations to engineering in 2022",
     },
   ];
 
@@ -56,8 +56,9 @@ const About = () => {
             <span className="gradient-text">Who I Am</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A passionate developer with 5+ years of experience crafting
-            exceptional digital experiences
+            A passionate developer who pivoted from operations to engineering —
+            bringing 5+ years of professional experience and a unique
+            perspective to crafting exceptional digital experiences
           </p>
         </motion.div>
 
@@ -150,21 +151,31 @@ const About = () => {
                 </h3>
                 <div className="space-y-4">
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    I'm a Frontend Developer with 5+ years of hands-on
-                    experience, including a 6-month internship, focused on
-                    building modern, scalable, and high-performance web
-                    applications. At Codeblock Technologies, I've worked
-                    extensively with React, Next.js, TypeScript, Tailwind CSS,
-                    and Firebase to create clean, responsive, and accessible
-                    user interfaces.
+                    My path into software development wasn't a straight line —
+                    and that's exactly what makes it valuable. I began my career
+                    in 2018 at Genpact, where I spent over three years as a
+                    Senior Process Associate handling high-volume claims
+                    processing with precision and consistency. That experience
+                    taught me discipline, attention to detail, and how to thrive
+                    in fast-paced, deadline-driven environments.
                   </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    I specialize in crafting smooth, intuitive, and visually
-                    refined experiences backed by solid frontend
-                    architecture—whether it's SSR, component-driven systems,
-                    dynamic theming, or performance optimization. My expertise
-                    spans across web and cross-platform development, delivering
-                    production-ready solutions that scale.
+                    In 2022, I made a deliberate career pivot into frontend
+                    engineering — a decision driven by my passion for building
+                    things and solving problems creatively. I started with an
+                    internship at Leads4Needs, quickly progressed to Codeblock
+                    Technologies, and have since grown into a Senior Frontend
+                    Engineer working with React, Next.js, TypeScript, and modern
+                    tooling across production applications.
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Today, I specialize in crafting smooth, intuitive, and
+                    visually refined experiences backed by solid frontend
+                    architecture — whether it's SSR, component-driven systems,
+                    dynamic theming, or performance optimization. My background
+                    gives me a unique edge: I understand business operations
+                    deeply and build software that genuinely solves real-world
+                    problems.
                   </p>
                 </div>
               </div>

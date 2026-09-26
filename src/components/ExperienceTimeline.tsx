@@ -32,8 +32,8 @@ const ExperienceTimeline = () => {
             <span className="gradient-text">My Experience</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From 2018 to present — a journey of growth, learning, and building
-            exceptional digital experiences
+            From operations to engineering — a career pivot that shaped how I
+            build exceptional digital experiences
           </p>
         </motion.div>
 

@@ -18,14 +18,14 @@ export const experiences: Experience[] = [
     location: "Gurugram, India",
     type: "Full-time",
     summary:
-      "Owned frontend architecture and end-to-end delivery for production applications using React.js, Next.js, and TypeScript.",
+      "Leading frontend architecture and end-to-end delivery for production-grade applications, driving measurable performance and developer-experience improvements across the engineering org.",
     highlights: [
-      "Migrated legacy React.js app to Next.js, cutting initial page load time by ~30%",
-      "Refactored global state into Redux Toolkit with RTK Query, reducing redundant API calls by ~40%",
-      "Implemented JWT-based authentication and route protection with role-aware UI",
-      "Improved Core Web Vitals, raising Lighthouse scores from ~60s to 85–90+",
-      "Built reusable typed UI components, cutting duplicate styling code by ~25%",
-      "Shipped production releases 1–2 times weekly via CI/CD with Cypress test coverage",
+      "Spearheaded migration of a legacy React.js codebase to Next.js, reducing initial page load time by ~30% and modernizing the entire rendering strategy",
+      "Refactored global state management into Redux Toolkit with RTK Query, eliminating ~40% of redundant API calls and simplifying data-fetching logic",
+      "Designed and implemented JWT-based authentication with role-aware route protection, strengthening application security across user tiers",
+      "Elevated Core Web Vitals and Lighthouse scores from ~60 to 85–90+, directly improving SEO rankings and user engagement metrics",
+      "Architected a reusable typed component library, reducing duplicate styling code by ~25% and accelerating feature delivery",
+      "Owned CI/CD release pipeline, shipping production updates 1–2 times weekly with comprehensive Cypress test coverage",
     ],
     tech: [
       "React.js",
@@ -44,12 +44,12 @@ export const experiences: Experience[] = [
     location: "Remote",
     type: "Freelance",
     summary:
-      "Restructured cluttered AI-generated React projects into maintainable codebases and repaired end-to-end user flows.",
+      "Partnered with early-stage startups to transform unstructured, AI-generated React codebases into scalable, maintainable products with reliable end-to-end user flows.",
     highlights: [
-      "Resolved majority of reported bugs within first two weeks of engagement",
-      "Introduced Redux state management and Node.js/Express API endpoints",
-      "Deployed via Vercel/Netlify and containerized services with Docker",
-      "Improved perceived application speed by 50%+ through optimizations",
+      "Diagnosed and resolved the majority of critical bugs within the first two weeks of each engagement, restoring stakeholder confidence",
+      "Introduced Redux for predictable state management and built Node.js/Express API endpoints to support full-stack feature delivery",
+      "Streamlined deployment workflows with Vercel/Netlify and containerized services using Docker for consistent environments",
+      "Optimized rendering and asset delivery, improving perceived application speed by 50%+ across client projects",
     ],
     tech: [
       "React.js",
@@ -68,13 +68,13 @@ export const experiences: Experience[] = [
     location: "Noida (Sector 135), India",
     type: "Full-time",
     summary:
-      "Built React.js and Next.js applications in TypeScript across multiple client projects, improving page-load performance by 35%.",
+      "Delivered high-performance React.js and Next.js applications in TypeScript across multiple enterprise client projects, consistently improving page-load performance by 35%.",
     highlights: [
-      "Designed and built 30+ reusable lightweight components, cutting feature development time by ~20%",
-      "Implemented SSR and static generation in Next.js with on-page SEO improvements",
-      "Optimized images and assets, reducing average page weight by 30–40%",
-      "Wrote Cypress tests integrated into CI/CD, cutting regression bugs by ~25%",
-      "Integrated REST APIs and MongoDB/Firebase data sources",
+      "Designed and built 30+ reusable, lightweight components, reducing feature development time by ~20% across teams",
+      "Implemented SSR and static site generation in Next.js with on-page SEO enhancements, boosting organic visibility for client products",
+      "Optimized image and asset delivery, reducing average page weight by 30–40% and improving mobile performance",
+      "Established Cypress testing integrated into CI/CD pipelines, cutting regression bugs by ~25%",
+      "Integrated REST APIs with MongoDB and Firebase data sources, enabling real-time features and scalable data handling",
     ],
     projects: ["Yobiz", "Vitalic", "Imagineclick", "Yoembryo"],
     tech: [
@@ -94,10 +94,10 @@ export const experiences: Experience[] = [
     location: "India",
     type: "Internship",
     summary:
-      "Built responsive breadcrumbs, dialogs, drawers, and forms using React.js and JavaScript.",
+      "Kicked off my engineering career by building responsive UI components — breadcrumbs, dialogs, drawers, and forms — using React.js and JavaScript.",
     highlights: [
-      "Implemented smooth animations and interaction patterns",
-      "Learned responsive frontend development best practices",
+      "Implemented smooth animations and interaction patterns that elevated the overall user experience",
+      "Gained hands-on exposure to responsive frontend development best practices and component-driven architecture",
     ],
     tech: ["React.js", "JavaScript", "CSS"],
   },
@@ -108,11 +108,11 @@ export const experiences: Experience[] = [
     location: "Noida, India",
     type: "Full-time",
     summary:
-      "Processed 18–22 medical, legal, auto, and liability claims daily with strong attention to detail.",
+      "Managed high-volume medical, legal, auto, and liability claims processing with precision, consistently exceeding performance benchmarks in a fast-paced operations environment.",
     highlights: [
-      "Consistently met or exceeded daily throughput targets",
-      "Maintained low error/rework rate across high-volume caseload",
-      "Created accurate claims within 20–30-minute handling targets",
+      "Processed 18–22 claims daily while consistently meeting or exceeding throughput targets",
+      "Maintained an exceptionally low error/rework rate across a high-volume caseload",
+      "Delivered accurate claims within strict 20–30-minute handling targets, demonstrating strong time management under pressure",
     ],
     tech: ["Claims Processing", "Data Analysis", "Process Optimization"],
   },
