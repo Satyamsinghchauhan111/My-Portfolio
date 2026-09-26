@@ -127,7 +127,7 @@ const Resume = () => {
       pageCount++;
     }
 
-    pdf.save("Satyam-singh-chauhan.pdf");
+    pdf.save("Satyam_Singh_Resume_2026.pdf");
   };
 
   return (

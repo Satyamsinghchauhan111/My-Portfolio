@@ -2,6 +2,7 @@ import { slideInLeft, slideInRight, techStack } from "@/utils";
 import profileImage from "@/assets/satyam.jpg";
 import { motion } from "framer-motion";
 import { Award, Briefcase, Code2, Rocket, Users } from "lucide-react";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
 
 const About = () => {
   const container = {
@@ -171,6 +172,9 @@ const About = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Experience Timeline Section */}
+      <ExperienceTimeline />
     </section>
   );
 };

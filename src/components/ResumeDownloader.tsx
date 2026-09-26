@@ -55,7 +55,7 @@ const ResumeDownloader = () => {
 
       const link = document.createElement("a");
       link.href = resume; // <-- Use imported URL here
-      link.download = "Satyam-singh-chauhan.pdf"; // Correct file name and extension
+      link.download = "Satyam_Singh_Resume_2026.pdf"; // Correct file name and extension
       link.click();
     } catch (error) {
       console.error("Download failed", error);

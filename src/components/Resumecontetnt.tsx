@@ -3,15 +3,18 @@ const ResumeContent = () => {
     <div className="font-serif animate-fade-in-up duration-500">
       <div className="bg-gray-300 dark:bg-transparent dark:border rounded-lg mt-10">
         <h1 className="font-serif flex justify-center text-3xl">
-          Satyam Singh Chauhan
+          Satyam Singh
         </h1>
         <div className="py-4">
           <div className="flex justify-center text-lg">
-            Senior Engineer software development
+            Frontend Engineer | React.js | Next.js | TypeScript | JavaScript |
+            Redux Toolkit | SSR
           </div>
-          <p className="flex justify-center">Haridwar India 249407</p>
+          <p className="flex justify-center">
+            Noida, Sector-135, India (201301)
+          </p>
           <p className="flex justify-around">
-            8533924968 satyamsingh7417@gmail.com
+            +91 8533924968 satyamsingh7417@gmail.com
           </p>
         </div>
       </div>
@@ -20,170 +23,235 @@ const ResumeContent = () => {
         <div className="h-2 bg-gray-600 w-full rounded-2xl" />
       </div>
 
-      <div className="flex justify-start my-2 font-semibold">
-        Experience Overview
-      </div>
+      <div className="flex justify-start my-2 font-semibold">Profile</div>
       <div className="h-px bg-gray-700 w-full" />
       <div className="py-4 text-justify">
-        Experienced Front-end heavy Full Stack Developer with 3+ years of
-        hands-on experience, specializing in building intuitive, user-focused
-        applications with a strong emphasis on front-end development. Proficient
-        in crafting responsive, performance-optimized UIs using{" "}
-        <strong>ReactJs</strong> , <strong>React Native</strong>,{" "}
-        <strong>Next.js</strong>, complemented by backend integration via
-        Firebase and serverless architectures. Skilled in{" "}
-        <strong>Tailwind CSS</strong>,<strong> Material UI</strong>,{" "}
-        <strong>JavaScript</strong> and <strong>TypeScript</strong> ,{" "}
-        <strong>Cross Platform Integration</strong> and dynamic conditional
-        component rendering to deliver seamless and engaging user experiences.
-        Passionate about <strong> UI/UX design</strong>, component-driven
-        architecture, and building scalable frontend systems with attention to
-        accessibility, usability, and visual clarity. Adept at collaborating
-        across teams, integrating third-party APIs, and shipping
-        production-ready features that enhance user engagement and business
-        value.
+        Frontend Engineer with 4+ years of experience building scalable,
+        high-performance web applications using <strong>React.js</strong>,{" "}
+        <strong>Next.js</strong>, <strong>TypeScript</strong>, and{" "}
+        <strong>Redux Toolkit</strong>. Strong track record in SSR
+        implementation, authentication flows, REST API integration, and reusable
+        component architecture, with hands-on exposure to{" "}
+        <strong>Node.js/Express</strong>, <strong>MongoDB</strong>,{" "}
+        <strong>Firebase Firestore</strong>, and containerized (Docker) and
+        cloud (Vercel/Netlify) deployment workflows. Improved page-load
+        performance by <strong>35%</strong> and perceived application speed by{" "}
+        <strong>50%+</strong> across production and freelance projects.
       </div>
-      <div className="flex justify-start my-2 font-semibold">
-        Technical Skills and Interests
-      </div>
+
+      <div className="flex justify-start my-2 font-semibold">Skills</div>
       <div className="h-px bg-black w-full" />
       <div className="flex justify-around py-4">
         <div>
-          <ul
-            className="flex gap-3 flex-wrap sm:justify-evenly  list-col-grow list-disc
-           capitalize rounded-full"
-          >
-            <li> software installation</li>
-            <li> performance optimization</li>
+          <ul className="flex gap-3 flex-wrap sm:justify-evenly list-col-grow list-disc capitalize rounded-full">
             <li>
-              <strong>Cypress</strong>
-            </li>
-            <li> testing</li>
-            <li>
-              <strong>debugging</strong>
-            </li>
-            <li> team reporting</li>
-            <li> tools customization</li>
-            <li>
-              <strong>multiplatform development</strong>
-            </li>
-            <li> React component design</li>
-            <li> React Native mobile development</li>
-            <li>
-              state management with <strong>Redux</strong>
+              <strong>Frontend:</strong> React.js, Next.js, TypeScript,
+              JavaScript (ES6+), Redux Toolkit, RTK Query
             </li>
             <li>
-              JavaScript <strong>ES6+</strong>
+              <strong>Backend (Working Knowledge):</strong> Node.js, Express.js,
+              REST API Design & Integration, JWT Authentication
             </li>
             <li>
-              <strong>Capacitor plugin integration</strong>
+              <strong>Databases:</strong> MongoDB, Firebase Firestore
             </li>
             <li>
-              <strong>cross-platform deployment</strong>
+              <strong>Styling & UI:</strong> Tailwind CSS, Material UI,
+              Responsive Design
             </li>
             <li>
-              <strong>SSR/SEO</strong>
-            </li>
-            <li> web applications</li>
-            <li> critical thinking</li>
-            <li> technical support</li>
-            <li> quality assurance</li>
-            <li> hardware installation</li>
-            <li> REST & GraphQL APIs</li>
-            <li> JSX and Virtual DOM</li>
-            <li>
-              <strong>React 19</strong>
+              <strong>Deployment & DevOps:</strong> Vercel, Netlify, Docker
+              (containerized builds), Git, CI/CD
             </li>
             <li>
-              <strong>Expo</strong> for React Native
+              <strong>Performance & SEO:</strong> SSR, SEO Optimization, Lazy
+              Loading, Code Splitting
             </li>
             <li>
-              <strong>Native device APIs</strong> (Camera, GPS,notification,
-              system interactions)
+              <strong>Testing & Tooling:</strong> Cypress, Postman, Vite,
+              Webpack
             </li>
-            <li> code refactoring</li>
-            <li> debugging React Native builds</li>
             <li>
-              <strong>TypeScript</strong>
+              <strong>Cross-Platform:</strong> React Native, Expo, Capacitor
             </li>
           </ul>
         </div>
       </div>
-      <div className="flex justify-start my-2 font-semibold">Work History</div>
+
+      <div className="flex justify-start my-2 font-semibold">
+        Work Experience
+      </div>
       <div className="h-px bg-black w-full" />
       <div>
         <div className="font-[600] py-2 flex justify-between text-sm">
           <div>
-            <p>Senior Software Engineer</p>
-            <p>Software Engineer</p>
-            <p>Codeblock Technologies Pvt Ltd ,NOIDA, IN</p>
+            <p>Senior Frontend Engineer</p>
+            <p>VLink India Pvt Ltd</p>
+            <p>Gurugram, India</p>
           </div>
           <div>
-            <p>May 2024 to Current</p>
-            <p>November 2022 To April 2024</p>
+            <p>Jan 2026 – Aug 2026</p>
           </div>
         </div>
 
         <ol className="pl-10 text-justify">
           <li>
-            • Programmed applications and internal tools using object-oriented
-            principles to promote code abstraction, stability, and reusability.
+            • Owned frontend architecture and end-to-end delivery for production
+            applications using React.js, Next.js, and TypeScript, defining
+            folder structure, component boundaries, and shared UI/hook libraries
+            used across 3+ feature teams.
           </li>
           <li>
-            • Defined and documented system requirements for both system
-            modifications and new installations, ensuring alignment with
-            business objectives.
+            • Migrated a legacy React.js (client-rendered) application to
+            Next.js, restructuring pages into the file-based router and
+            resolving hydration mismatches — cutting initial page load time by
+            ~30% and eliminating recurring routing bugs.
           </li>
           <li>
-            • Analyzed user needs and software specifications to drive feasible
-            and scalable design decisions.
+            • Refactored global state from scattered local state into Redux
+            Toolkit slices with RTK Query, reducing redundant API calls by ~40%
+            and simplifying loading/error handling across screens.
           </li>
           <li>
-            • Identified and corrected code errors to{" "}
-            <strong>optimize application performance</strong>, stability, and
-            maintainability. Developed, tested, debugged, and documented
-            full-stack solutions using <strong>JavaScript</strong>,{" "}
-            <strong>HTML</strong>, and <strong>CSS</strong>. Collaborated with{" "}
-            <strong>UX/UI </strong>teams to implement intuitive user interfaces
-            and integrate new feature sets, improving overall user satisfaction.
+            • Implemented authentication and route protection using JWT-based
+            session handling, protected routes/middleware, and role-aware UI
+            rendering, closing gaps that had previously allowed unauthorized
+            route access.
           </li>
           <li>
-            • Coordinated software system installations and deployment pipelines
-            across development and production environments. Implemented
-            responsive UI components using modern JS frameworks and CSS
-            libraries for <strong>cross-device/browser compatibility</strong>.
-            Built reusable, conditionally-rendered components in{" "}
-            <strong>React</strong> , and React Native to streamline development
-            and reduce redundancy. Developed <strong>cross-platform </strong>
-            mobile and web applications using React Native and Next.js, enabling
-            shared codebases and consistent UX across platforms.
+            • Improved Core Web Vitals through code splitting, dynamic imports,
+            image optimization, and memoization (React.memo,
+            useMemo/useCallback), raising average Lighthouse performance score
+            from the ~60s into the 85–90+ range on key pages.
           </li>
           <li>
-            • Integrated RESTful APIs and Firebase services for real-time data,
-            authentication, and cloud storage. Engineered push notification
-            systems for web and mobile platforms using{" "}
-            <strong>Firebase Cloud Messaging (FCM)</strong> and native
-            libraries, enabling <strong>real-time user engagement</strong> .
-          </li>
-          <li>
-            • Programmed applications and tools using object-oriented languages
-            with goals of code abstraction, stability and reuse.
-          </li>
-          <li>
-            • Developed requirements for system modifications and new system
-            installations.
-          </li>
-          <li>
-            • Analyzed user needs and software requirements to determine design
-            feasibility. Analyzed code and corrected errors to optimize output.
-          </li>
-          <li>
-            • Developed, tested, debugged and documented software programs using{" "}
-            <strong>JavaScript</strong> and HTML and CSS.
+            • Built and maintained reusable, typed UI components (forms, tables,
+            modals, navigation) in TypeScript with Tailwind CSS, cutting
+            duplicate styling code by roughly 25% and improving UI consistency
+            across features.
           </li>
           <li className="pb-3">
-            • Coordinated installation of software systems and collaborated with
-            user experience team on design and implementation of new features.
+            • Shipped production releases 1–2 times weekly via CI/CD, reviewing
+            pull requests and writing Cypress test coverage for critical flows,
+            keeping post-release defect reports to a minimal, easily-patched
+            level.
+          </li>
+          <div className="h-px bg-gray-300 w-full" />
+        </ol>
+      </div>
+
+      <div>
+        <div className="font-[600] py-2 flex justify-between text-sm">
+          <div>
+            <p>Freelance Frontend Developer</p>
+            <p>Self-Employed</p>
+            <p>Remote</p>
+          </div>
+          <div>
+            <p>Aug 2025 – Jan 2026</p>
+          </div>
+        </div>
+
+        <ol className="pl-10 text-justify">
+          <li>
+            • Restructured a cluttered, AI-generated React project into a
+            maintainable codebase and repaired end-to-end user flows, resolving
+            the majority of reported bugs within the first two weeks.
+          </li>
+          <li>
+            • Introduced Redux state management and Node.js/Express-based API
+            endpoints to support cleaner client-server data flow, reducing
+            redundant re-renders and inconsistent UI state.
+          </li>
+          <li>
+            • Deployed builds via Vercel/Netlify and containerized services with
+            Docker, cutting environment-setup time for new changes from hours to
+            minutes.
+          </li>
+          <li className="pb-3">
+            • Improved perceived application speed by more than 50% through
+            frontend and data-fetching optimizations, including memoization and
+            reduced bundle size.
+          </li>
+          <div className="h-px bg-gray-300 w-full" />
+        </ol>
+      </div>
+
+      <div>
+        <div className="font-[600] py-2 flex justify-between text-sm">
+          <div>
+            <p>Engineer – Software Development</p>
+            <p>Codeblock Technologies Pvt. Ltd.</p>
+            <p>Noida (Sector 135), India</p>
+          </div>
+          <div>
+            <p>Nov 2022 – Aug 2025</p>
+          </div>
+        </div>
+
+        <ol className="pl-10 text-justify">
+          <li>
+            • Built React.js and Next.js applications in TypeScript across
+            multiple client projects, improving page-load performance by 35%
+            across high-traffic flows through code splitting, lazy loading, and
+            bundle-size optimization (Webpack/Vite).
+          </li>
+          <li>
+            • Independently designed and built 30+ reusable, lightweight
+            components (forms, cards, tables, modals, navigation, breadcrumbs)
+            using Tailwind CSS and vanilla CSS, published as a shared internal
+            component set that cut new-feature development time by roughly 20%.
+          </li>
+          <li>
+            • Implemented SSR and static generation in Next.js and drove on-page
+            SEO improvements (meta tags, structured data, semantic HTML,
+            sitemap/robots configuration), improving crawlability and
+            contributing to measurable gains in organic search visibility.
+          </li>
+          <li>
+            • Optimized images and assets (compression, responsive srcsets,
+            lazy-loaded media), reducing average page weight by roughly 30–40%
+            and improving Largest Contentful Paint on content-heavy pages.
+          </li>
+          <li>
+            • Wrote Cypress component and end-to-end tests for critical user
+            flows and integrated them into CI/CD pipelines, cutting
+            regression-related production bugs by an estimated 25%.
+          </li>
+          <li>
+            • Integrated REST APIs and MongoDB/Firebase-backed data sources to
+            power dynamic, data-driven UI features, handling loading, error, and
+            empty states consistently across the app.
+          </li>
+          <li className="pb-3">
+            • Used Git-based branching and PR workflows, participating in code
+            reviews to maintain code quality and consistent TypeScript typing
+            standards across the team.
+          </li>
+          <div className="h-px bg-gray-300 w-full" />
+        </ol>
+      </div>
+
+      <div>
+        <div className="font-[600] py-2 flex justify-between text-sm">
+          <div>
+            <p>Frontend Development Intern</p>
+            <p>Leads4Needs</p>
+            <p>India</p>
+          </div>
+          <div>
+            <p>Jan 2022 – Jun 2022</p>
+          </div>
+        </div>
+
+        <ol className="pl-10 text-justify">
+          <li>
+            • Built responsive breadcrumbs, dialogs, drawers, and forms using
+            React.js and JavaScript.
+          </li>
+          <li className="pb-3">
+            • Implemented smooth animations and interaction patterns while
+            learning responsive frontend development practices.
           </li>
           <div className="h-px bg-gray-300 w-full" />
         </ol>
@@ -193,78 +261,90 @@ const ResumeContent = () => {
         <div className="font-[600] py-2 flex justify-between text-sm">
           <div>
             <p>Senior Process Associate</p>
-            <p>Process Associate</p>
             <p>Genpact</p>
+            <p>Noida, India</p>
           </div>
           <div>
-            <p>November 2019 To August 2021</p>
-            <p>Feb 2018 To October 2019</p>
+            <p>Feb 2018 – Aug 2021</p>
           </div>
         </div>
 
-        <ol className=" pl-10 text-justify">
+        <ol className="pl-10 text-justify">
           <li>
-            • Met critical month-end reporting deadlines consistently,
-            supporting finance and operational efficiency.
-          </li>
-          <li>
-            • Identified and implemented process improvements that increased
-            workflow efficiency and reduced bottlenecks.
-          </li>
-          <li>
-            • Conducted onboarding and process training for new team members,
-            providing comprehensive overviews of backend systems and workflows.
-          </li>
-          <li>
-            • Diagnosed and resolved process-related issues, contributing to
-            optimized workflows and increased business output.
-          </li>
-          <li>
-            •Investigated and corrected claim errors by interviewing agents and
-            claimants, ensuring accuracy and compliance.
-          </li>
-          <li>
-            • Gained in-depth knowledge of claim handling procedures and applied
-            continuous improvement metrics for streamlined operations.
-          </li>
-          <li>
-            • Collaborated with cross-functional teams to align backend
-            operations with front-end requirements, enhancing overall claim
-            processing speed and accuracy.
-          </li>
-          <li>
-            • Maintained comprehensive documentation of claims, resolutions, and
-            procedural changes to ensure audit readiness and regulatory
-            compliance.
+            • Processed 18–22 medical, legal, auto, and liability claims daily,
+            consistently meeting or exceeding daily throughput targets with
+            strong attention to detail and process discipline.
           </li>
           <li className="pb-3">
-            • Performed routine audits of processed claims to ensure data
-            accuracy, uncover recurring issues, and drive long-term process
-            optimization.
+            • Reviewed case files and created accurate claims within
+            20–30-minute handling targets, maintaining a low error/rework rate
+            across a high-volume caseload.
           </li>
           <div className="h-px bg-gray-300 w-full" />
         </ol>
       </div>
 
-      <div>
-        <div className=" font-[600] py-2 flex justify-between text-sm">
-          <div>
-            <p>Marketing Assistant</p>
-            <p>Aggarwal Trading Corporation, Haridwar, IN</p>
-          </div>
-          <div>
-            <p>March 2017 To January 2018</p>
-          </div>
-        </div>
-        <ol className="pl-10">
+      <div className="flex justify-start my-2 font-semibold">Projects</div>
+      <div className="h-px bg-gray-300 w-full" />
+      <div className="py-4">
+        <div className="font-[600]">Yobiz — B2C Retail Platform</div>
+        <ol className="pl-10 text-justify">
           <li>
-            • Compiled products and customer data to generate informed profile
-            projections.
+            • Developed and maintained a scalable, responsive B2C retail
+            application using React.js, TypeScript, Tailwind CSS, and Redux
+            Toolkit, with REST API and Android integrations, Cypress E2E
+            testing, and CI/CD automation.
           </li>
           <li>
-            • Worked closely with product development teams to create and
-            maintain marketing materials for sales presentations and client
-            meetings.
+            • Architected reusable, typed component patterns (product listings,
+            filters, cart, checkout flows) to keep the codebase consistent and
+            maintainable as the product surface grew.
+          </li>
+          <li>
+            • Optimized rendering performance and mobile responsiveness across
+            device sizes, reducing layout shifts and improving usability on
+            high-traffic retail pages.
+          </li>
+        </ol>
+      </div>
+
+      <div className="py-4">
+        <div className="font-[600]">Vitalic (LC / SPC / PIL)</div>
+        <ol className="pl-10 text-justify">
+          <li>
+            • Modernized a legacy React application by migrating to Next.js with
+            SSR, middleware-based authentication, and optimized routing; built
+            interactive dashboards and real-time DOCX document workflows with
+            dynamic data handling and MongoDB-backed persistence.
+          </li>
+          <li>
+            • Implemented SSR and metadata handling in Next.js to improve
+            search-engine indexing, crawlability, and initial page-load speed
+            across key application routes.
+          </li>
+          <li>
+            • Designed reusable dashboard widgets and data tables with
+            client-side filtering, sorting, and pagination to handle large,
+            dynamic datasets efficiently.
+          </li>
+        </ol>
+      </div>
+
+      <div className="py-4">
+        <div className="font-[600]">Imagineclick / Yoembryo</div>
+        <ol className="pl-10 text-justify">
+          <li>
+            • Developed responsive, data-driven interfaces featuring real-time
+            search, messaging, dynamic content, and reusable components using
+            React.js, TypeScript, and Material UI.
+          </li>
+          <li>
+            • Built debounced, real-time search and filtering functionality
+            backed by REST APIs to keep large result sets fast and responsive.
+          </li>
+          <li>
+            • Structured component and routing architecture for maintainability,
+            enabling faster feature delivery as the application scope expanded.
           </li>
         </ol>
       </div>
@@ -273,45 +353,11 @@ const ResumeContent = () => {
       <div className="h-px bg-gray-300 w-full" />
       <div className="py-4">
         <div className="flex justify-between">
-          <p>B.Sc IT - Computer Science</p> <p>6/2017</p>
+          <p>B.Sc (IT), HNBGU</p> <p>Jul 2014 – Jul 2017</p>
         </div>
-        <p> Chinmaya Degree College. Haridwar, India</p>
-      </div>
-
-      <div className="flex justify-start my-2 font-semibold">Certification</div>
-      <div className="h-px bg-gray-300 w-full" />
-      <div className="py-4">
         <div className="flex justify-between">
-          <p>M.E.R.N certificate. DUcat</p> <p>9/2022</p>
-        </div>
-      </div>
-      <div className="flex justify-start my-2 font-semibold">
-        Hobbies And Interests
-      </div>
-      <div className="h-px bg-gray-300 w-full" />
-      <div>
-        <ol className=" flex justify-evenly flex-wrap pt-4 pb-6 ">
-          <li>• Gaming</li>
-          <li>• New Technologies/Gadgets</li>
-          <li>• Music</li>
-          <li>• Playing musical instruments</li>
-          <li>• Travelling</li>
-        </ol>
-      </div>
-      <div className="flex justify-start my-2 font-semibold">Languages</div>
-      <div className="h-px bg-gray-300 w-full" />
-      <div className="flex justify-between">
-        <div>
-          <div className=" font-semibold">English</div>
-          <div> Intermediate</div>
-        </div>
-        <div>
-          <div className=" font-semibold">Hindi</div>
-          <div> Proficient</div>
-        </div>
-        <div>
-          <div className=" font-semibold">sanskrit</div>
-          <div> Elementary</div>
+          <p>MERN Full-Stack Certification, DUCAT (Gurugram, Sector 14)</p>{" "}
+          <p>Apr 2022 – Oct 2022</p>
         </div>
       </div>
     </div>

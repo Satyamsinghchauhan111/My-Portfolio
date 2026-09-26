@@ -22,16 +22,16 @@ import future2 from "./assets/projects/future2.png";
 import future3 from "./assets/projects/future3.png";
 
 export const projects = [
-  {
-    id: "1",
-    title: "Old Portfolio",
-    description:
-      "This portfolio was made by me just to see what i have learn design part in my early days",
-    techUsed: ["React", "Html", "CSS"],
-    gitHubLink: "",
-    liveLink: "https://merry-marshmallow-e96507.netlify.app/",
-    images: [Portfolio1, Portfolio2, Portfolio3],
-  },
+  // {
+  //   id: "1",
+  //   title: "Old Portfolio",
+  //   description:
+  //     "This portfolio was made by me just to see what i have learn design part in my early days",
+  //   techUsed: ["React", "Html", "CSS"],
+  //   gitHubLink: "https://github.com/satyamtheone",
+  //   liveLink: "https://merry-marshmallow-e96507.netlify.app/",
+  //   images: [Portfolio1, Portfolio2, Portfolio3],
+  // },
   {
     id: "2",
     title: "Local Help",
@@ -47,8 +47,8 @@ export const projects = [
       "typescript",
       "postgres",
     ],
-    gitHubLink: "",
-    liveLink: "https://localhelpsite.netlify.app/",
+    gitHubLink: "https://github.com/satyamtheone/nearby-aid-now",
+    liveLink: "https://nearby-aid-now.vercel.app/",
     images: [help1, help2, help3, help4, help5, help6],
   },
   {
@@ -67,7 +67,7 @@ export const projects = [
       "typescript",
       "Daisy ui",
     ],
-    gitHubLink: "",
+    gitHubLink: "https://github.com/satyamtheone",
     liveLink: "https://dashing-sprite-d874b7.netlify.app/",
     images: [client1, client2, client3, client4, client5],
   },
@@ -85,7 +85,7 @@ export const projects = [
       "react-beautiful-dnd",
       "smooth-dnd",
     ],
-    gitHubLink: "",
+    gitHubLink: "https://github.com/satyamtheone",
     liveLink: "https://easytemplatebuilder.netlify.app/",
     images: [template1, template2, template3],
   },
@@ -103,7 +103,7 @@ export const projects = [
       "framer-motion",
       "embla-carousel-react",
     ],
-    gitHubLink: "",
+    gitHubLink: "https://github.com/satyamtheone",
     liveLink: "https://stellular-cassata-d6d7ea.netlify.app/",
     images: [future1, future2, future3],
   },
@@ -131,6 +131,7 @@ export const projects = [
       "Html",
       "CSS",
     ],
+    gitHubLink: "https://github.com/satyamtheone",
   },
   {
     id: "7",
@@ -155,6 +156,7 @@ export const projects = [
       "Html",
       "CSS",
     ],
+    gitHubLink: "https://github.com/satyamtheone",
   },
   {
     id: "8",
@@ -178,6 +180,7 @@ export const projects = [
       "CSS",
       "complex Designs",
     ],
+    gitHubLink: "https://github.com/satyamtheone",
   },
 ];
 

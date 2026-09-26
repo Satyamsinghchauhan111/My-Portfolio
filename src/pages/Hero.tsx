@@ -19,10 +19,10 @@ const Hero = () => {
   }, [index]);
 
   const stats = [
-    { value: "5+", label: "Years Experience" },
+    { value: "4.5+", label: "Years Experience" },
     { value: "20+", label: "Projects Delivered" },
-    { value: "10+", label: "Happy Clients" },
-    { value: "99%", label: "Client Satisfaction" },
+    { value: "5+", label: "Happy Clients" },
+    { value: "90%", label: "Client Satisfaction" },
   ];
 
   return (
@@ -75,7 +75,7 @@ const Hero = () => {
 
             <motion.div variants={contactItem} className="mb-8">
               <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                With 5+ years of experience crafting exceptional digital
+                With 4.5+ years of experience crafting exceptional digital
                 experiences, I specialize in building scalable, high-performance
                 web applications using React, Next.js, and modern TypeScript
                 ecosystems. I transform complex requirements into elegant,
