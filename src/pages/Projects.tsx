@@ -1,13 +1,7 @@
 import { Card } from "@/components/ui/card";
-import { contactItem, projects, slideInRight } from "@/utils";
+import { contactItem, projects } from "@/utils";
 import { motion } from "framer-motion";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import CommonButton from "@/components/CommonButton";
+import { FolderGit2, ExternalLink, Github, Layers } from "lucide-react";
 
 const Projects = () => {
   const container = {
@@ -20,22 +14,9 @@ const Projects = () => {
     },
   };
 
-  const item = {
-    hidden: { y: 10, opacity: 0.3 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring" as const,
-        stiffness: 60,
-        damping: 20,
-      },
-    },
-  };
-
   return (
-    <section id="projects" className="pb-10 pt-14 relative">
-      <div className="container mx-auto md:px-6 px-3 ">
+    <section id="projects" className="py-20 relative">
+      <div className="container mx-auto md:px-6 px-3">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -43,16 +24,20 @@ const Projects = () => {
           viewport={{ once: false, amount: 0.8 }}
           transition={{ delay: 0.2 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
-            Featured Projects
+          <span className="section-badge mb-4">
+            <FolderGit2 className="w-3.5 h-3.5" />
+            Portfolio
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-4">
+            <span className="gradient-text">Featured Projects</span>
           </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work and creative solutions
           </p>
         </motion.div>
 
         <motion.div
-          className=" flex flex-col gap-6 max-w-5xl mx-auto"
+          className="flex flex-col gap-6 max-w-5xl mx-auto"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -62,78 +47,72 @@ const Projects = () => {
             <motion.div
               key={project.id}
               variants={contactItem}
-              className="glass glass-hover rounded-xl"
+              className="card-modern"
             >
-              <Card
-                key={index}
-                className=" p-0  h-full flex flex-col overflow-hidden rounded-xl"
-              >
-                {/* Content */}
+              <Card className="p-0 h-full flex flex-col overflow-hidden rounded-2xl border-0 bg-transparent">
                 <div className="p-6 flex-1 flex flex-col">
-                  <div className="flex-1">
-                    <motion.div className="flex items-center space-x-4">
-                      <h3 className="text-xl font-semibold mb-3 text-primary">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                        <Layers className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-foreground">
                         {project.title}
                       </h3>
-                    </motion.div>
-                    <motion.div className="flex items-center space-x-4">
-                      <p className="text-foreground/70 mb-4 leading-relaxed ">
-                        {project.description}
-                      </p>
-                    </motion.div>
-                    <motion.div className="flex items-center space-x-4">
-                      <div>
-                        <h4 className="text-sm font-medium text-secondary mb-2">
-                          Role:
-                        </h4>
-                        <p className="text-foreground/70 mb-4 leading-relaxed ">
-                          {project.role}
-                        </p>
-                      </div>
-                    </motion.div>
-                    <motion.div>
-                      <div className="mb-6">
-                        <h4 className="text-sm font-medium text-secondary mb-2">
-                          Tech Used:
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.techUsed.map((tech) => (
-                            <span
-                              key={tech}
-                              className="neu px-3 py-1 rounded-lg text-xs"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
+                    </div>
+                    <div className="flex gap-2">
+                      {project.gitHubLink && (
+                        <a
+                          href={project.gitHubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+                        >
+                          <Github className="w-4 h-4" />
+                        </a>
+                      )}
+                      {project.liveLink && (
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
                   </div>
 
-                  <div className="flex gap-3 mt-auto">
-                    {project.gitHubLink && (
-                      <motion.div
-                        className="flex items-center space-x-4 tooltip"
-                        data-tip="ask permission"
-                      >
-                        <CommonButton
-                          text="GitHub"
-                          variant="primary"
-                          size="sm"
-                          onClick={() => {}}
-                        />
-                      </motion.div>
-                    )}
-                    {project.liveLink && (
-                      <motion.div className="flex items-center space-x-4">
-                        <CommonButton
-                          text="Live Demo"
-                          variant="outline"
-                          size="sm"
-                          onClick={() => window.open(`${project.liveLink}`)}
-                        />
-                      </motion.div>
-                    )}
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+                    {project.description}
+                  </p>
+
+                  {project.role && (
+                    <div className="mb-4">
+                      <h4 className="text-sm font-medium text-secondary mb-2">
+                        Role:
+                      </h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {project.role}
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="mt-auto">
+                    <h4 className="text-sm font-medium text-secondary mb-2">
+                      Tech Used:
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techUsed.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 rounded-lg text-xs font-medium bg-primary/5 border border-primary/10 text-foreground/70"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Card>

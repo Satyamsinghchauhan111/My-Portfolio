@@ -1,18 +1,11 @@
 import coolGuy from "/src/assets/hero-withoutbghd.png";
-import cross from "/src/assets/logos/cross-platform.png";
-import css from "/src/assets/logos/css-3.png";
-import html from "/src/assets/logos/html.png";
 import react from "/src/assets/logos/react-01.png";
 import mui from "/src/assets/logos/mui.png";
 import tailwind from "/src/assets/logos/tailwind.png";
-import vscode from "/src/assets/logos/vscode.jpeg";
 import js from "/src/assets/logos/js.png";
 import redux from "/src/assets/logos/redux.png";
 import typescript from "/src/assets/logos/typescript.png";
-import daisyui from "/src/assets/logos/daisyui.png";
-import android from "/src/assets/logos/android-studio-icon.webp";
 import firebase from "/src/assets/logos/firebase.webp";
-import expo from "/src/assets/logos/expo.png";
 import next from "/src/assets/logos/next.png";
 import { motion } from "framer-motion";
 import { slideInLeft } from "@/utils";
@@ -20,106 +13,107 @@ import { slideInLeft } from "@/utils";
 const HeroAvatar = () => {
   return (
     <motion.div
-      className="col-span-1 animate-fade-in-up relative flex justify-center items-center "
+      className="relative flex justify-center items-center w-full max-w-md"
       variants={slideInLeft}
     >
-      {/* Tech Logos - Left Side (Before) */}
-      <div
-        className="absolute left-[40px] top-1/4 animate-float max-sm:left-0 max-sm:top-[15%]"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={cross} className="w-8 h-8" alt="HTML" />
-      </div>
-      <div className="absolute left-[5%] top-[43%]  animate-float">
-        <img src={css} className="w-8 h-8" alt="CSS" />
-      </div>
-      <div
-        className="absolute left-[20%] top-[45%]  animate-float"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={html} className="w-8 h-8 " alt="React" />
+      {/* Glowing ring behind avatar */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-primary/20 via-secondary/10 to-accent/20 blur-2xl animate-pulse"></div>
       </div>
 
-      <div className="absolute left-[5%] top-[55%]  animate-float">
-        <img src={react} className="w-8 h-8 rounded-full" alt="CSS" />
-      </div>
-      <div
-        className="absolute left-[0%] top-[32%]  animate-float"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={mui} className="w-8 h-8 rounded-2xl" alt="CSS" />
-      </div>
+      {/* Decorative ring */}
+      <div className="absolute w-80 h-80 sm:w-96 sm:h-96 rounded-full border-2 border-dashed border-primary/20 animate-spin-slow"></div>
 
-      <div className="absolute left-[20%] top-[65%]  animate-float">
-        <img
-          src={tailwind}
-          className="w-8 h-8 rounded-2xl animate-glow"
-          alt="CSS"
-        />
+      {/* Tech Logos - Left Side */}
+      <div
+        className="absolute left-[5%] top-[15%] animate-float"
+        style={{ animationDelay: "0.5s" }}
+      >
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={react} className="w-8 h-8 rounded-full" alt="React" />
+        </div>
       </div>
       <div
-        className="absolute left-[25%] top-[15%]  animate-float"
-        style={{ animationDelay: "2s" }}
+        className="absolute left-[0%] top-[40%] animate-float"
+        style={{ animationDelay: "1.5s" }}
       >
-        <img
-          src={vscode}
-          className="w-8 h-8 rounded-2xl animate-glow"
-          alt="CSS"
-        />
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={typescript} className="w-8 h-8" alt="TypeScript" />
+        </div>
+      </div>
+      <div
+        className="absolute left-[8%] top-[65%] animate-float"
+        style={{ animationDelay: "2.5s" }}
+      >
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={tailwind} className="w-8 h-8 rounded-lg" alt="Tailwind" />
+        </div>
+      </div>
+      <div
+        className="absolute left-[20%] top-[5%] animate-float"
+        style={{ animationDelay: "3s" }}
+      >
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={next} className="w-8 h-8" alt="Next.js" />
+        </div>
       </div>
 
       {/* Main Image */}
-      <img
-        src={coolGuy}
-        className="h-4/6 z-10 animate-float"
-        alt="CoolGuy"
+      <div className="relative z-10">
+        <img
+          src={coolGuy}
+          className="h-64 sm:h-80 lg:h-96 object-contain animate-float"
+          alt="Satyam Singh Chauhan"
+          style={{ animationDelay: "1s" }}
+        />
+      </div>
+
+      {/* Tech Logos - Right Side */}
+      <div
+        className="absolute right-[5%] top-[20%] animate-float"
+        style={{ animationDelay: "1s" }}
+      >
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={js} className="w-8 h-8" alt="JavaScript" />
+        </div>
+      </div>
+      <div
+        className="absolute right-[0%] top-[45%] animate-float"
+        style={{ animationDelay: "2s" }}
+      >
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={redux} className="w-8 h-8 rounded-full" alt="Redux" />
+        </div>
+      </div>
+      <div
+        className="absolute right-[10%] top-[70%] animate-float"
         style={{ animationDelay: "3s" }}
-      />
+      >
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={firebase} className="w-8 h-8 rounded-lg" alt="Firebase" />
+        </div>
+      </div>
+      <div
+        className="absolute right-[25%] top-[8%] animate-float"
+        style={{ animationDelay: "0.5s" }}
+      >
+        <div className="glass rounded-xl p-2 shadow-lg shadow-primary/10">
+          <img src={mui} className="w-8 h-8 rounded-lg" alt="MUI" />
+        </div>
+      </div>
 
-      {/* Tech Logos - Right Side (After) */}
-      <div
-        className="absolute right-[20%] top-[15%]  animate-float"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={js} className="w-8 h-8 animate-glow" alt="Next.js" />
-      </div>
-
-      <div className="absolute right-[0%] sm:right-[15%] top-[40%]  animate-float">
-        <img src={typescript} className="w-8 h-8" alt="Capacitor" />
-      </div>
-      <div
-        className="absolute max-sm:right-[5%] right-[28%] top-[25%] sm:top-[20%] animate-float"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={redux} className="w-12 h-10 rounded-full " alt="Capacitor" />
-      </div>
-      <div
-        className="absolute right-[5%] top-[50%] sm:right-[20%]  animate-float"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={daisyui} className="w-16 h-8 rounded-2xl" alt="Capacitor" />
-      </div>
-      <div className="absolute right-[28%] top-[65%]  animate-float">
-        <img src={expo} className="w-8 h-8 rounded-full" alt="Capacitor" />
-      </div>
-      <div
-        className="absolute right-[10%] top-[65%] animate-float"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={android} className="w-8 h-8" alt="Capacitor" />
-      </div>
-      <div
-        className="absolute right-[30%] top-[25%] sm:right-[15%]  animate-float"
-        style={{ animationDelay: "2s" }}
-      >
-        <img src={firebase} className="w-8 h-8 rounded-2xl" alt="CSS" />
+      {/* Floating badges */}
+      <div className="absolute -left-4 top-1/2 -translate-y-1/2 glass rounded-2xl px-4 py-2 shadow-lg shadow-primary/10 animate-float">
+        <div className="text-xs font-semibold text-primary">5+ Years</div>
+        <div className="text-[10px] text-muted-foreground">Experience</div>
       </div>
 
       <div
-        className="absolute right-[40%] top-[12%]  animate-float"
+        className="absolute -right-4 bottom-1/4 glass rounded-2xl px-4 py-2 shadow-lg shadow-primary/10 animate-float"
         style={{ animationDelay: "2s" }}
       >
-        <img src={next} className="w-8 h-6` " alt="CSS" />
+        <div className="text-xs font-semibold text-secondary">20+</div>
+        <div className="text-[10px] text-muted-foreground">Projects</div>
       </div>
     </motion.div>
   );

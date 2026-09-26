@@ -205,11 +205,11 @@ export const techStack = [
 ];
 
 export const titles = [
-  "Frontend Developer",
-  "Web Designer",
-  "Cross Platform Developer",
-  "Responsive UI Expert",
-  "Modern Design Enthusiast",
+  "Senior Frontend Developer",
+  "React & Next.js Specialist",
+  "Cross-Platform Developer",
+  "UI/UX Design Expert",
+  "Performance Optimization Guru",
 ];
 
 export const slideInLeft = {
