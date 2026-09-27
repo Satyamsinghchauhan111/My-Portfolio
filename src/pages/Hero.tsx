@@ -52,7 +52,7 @@ const Hero = () => {
             <motion.div variants={contactItem} className="mb-6">
               <span className="section-badge">
                 <Sparkles className="w-3.5 h-3.5" />
-                Available for freelance work
+                Available for freelance work also
               </span>
             </motion.div>
 
@@ -60,7 +60,6 @@ const Hero = () => {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
                 <span className="text-foreground">Hi, I'm </span>
                 <span className="gradient-text">Satyam Singh</span>
-                <span className="text-foreground"> Chauhan</span>
               </h1>
             </motion.div>
 
@@ -130,7 +129,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="order-1 lg:order-2 flex justify-center w-full overflow-visible px-2 sm:px-0"
+            className="order-1 lg:order-2 flex justify-center w-full overflow-visible max-sm:my-4 px-2 sm:px-0"
           >
             <HeroAvatar />
           </motion.div>

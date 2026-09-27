@@ -18,7 +18,7 @@ const About = () => {
   const highlights = [
     {
       icon: <Briefcase className="w-5 h-5" />,
-      title: "5+ Years Experience",
+      title: "7+ Years Experience",
       description: "Across operations & development",
     },
     {

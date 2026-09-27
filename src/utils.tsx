@@ -27,6 +27,8 @@ export const projects = [
   {
     id: "1",
     title: "Ai component generator",
+    type: "personal",
+    role: "The idea was to make a tool that can generate react components based on user input using openai api",
     description:
       "This is my personal project : Ai component generator is a web application that leverages the power of OpenAI's GPT-3.5-turbo model to generate React components based on user-provided prompts. Users can input a description of the desired component, and the application will return the corresponding React code, which can be easily copied and integrated into their projects. This tool aims to streamline the development process by providing quick and accurate component generation, saving developers time and effort.",
     techUsed: ["vercel sdk", "Gemini Ai", "React", "Html", "CSS"],
@@ -38,6 +40,8 @@ export const projects = [
   {
     id: "2",
     title: "Local Help",
+    type: "personal",
+    role: "the idea was to make a platform that can connect people who need help with people who can help them in their local area",
     description:
       "This is my personal project : LocalHelp is a real-time, location-based platform connecting users who need urgent help with nearby helpers in their community. Whether it's a medical emergency, a flat tire, or a quick local query, users can broadcast requests that others in the area instantly see. The app uses GPS to match people within specific sectors or villages, enabling fast and relevant support. It's like Uber, but for local assistance — powered by community. ",
     techUsed: [
@@ -57,7 +61,8 @@ export const projects = [
   {
     id: "3",
     title: "Clients marketing site",
-    for: "Client project",
+    type: "client",
+    role: "My role was to make seo friendly marketing site for my client project with all the features like responsive design, cookies, and smooth animations",
     description:
       "Client was in urgency to make a marketing site for his project so i build this static website just under 2 days with pixel perfect responsive design",
     techUsed: [
@@ -78,7 +83,8 @@ export const projects = [
   {
     id: "4",
     title: "Travel booking site",
-    for: "Client project",
+    type: "client",
+    role: "My role was to make a travel booking site for my client project with all the features like booking, payment, and user management",
     description:
       "This was my client project i was responsible for making a travel booking site with all the features like booking, payment, and user management",
     techUsed: [
@@ -97,7 +103,8 @@ export const projects = [
   {
     id: "10",
     title: "Ai Quiz app",
-    for: "Client project",
+    type: "client",
+    role: "My role was to optimize add state management make it smooth with all the features like quiz, payment, and user management",
     description:
       "This was my client project i was responsible for making a quiz app with all the features like quiz, payment, and user management",
     techUsed: [
@@ -115,27 +122,31 @@ export const projects = [
     ],
     gitHubLink: "https://github.com/satyamtheone/ai4u-client/",
   },
-  {
-    id: "4",
-    title: "Easy template maker",
-    description:
-      "i want to check if i can make any thing using drag and drop libraries so i make this simple one please open this on desktop it is not responsive ",
-    techUsed: [
-      "React",
-      "Html",
-      "CSS",
-      "javascript",
-      "framer-motion",
-      "react-beautiful-dnd",
-      "smooth-dnd",
-    ],
-    gitHubLink: "https://github.com/satyamtheone",
-    liveLink: "https://easytemplatebuilder.netlify.app/",
-    images: [template1, template2, template3],
-  },
+  // {
+  //   id: "4",
+  //   title: "Easy template maker",
+  //   type: "personal",
+  //   role: "Role description coming soon...",
+  //   description:
+  //     "i want to check if i can make any thing using drag and drop libraries so i make this simple one please open this on desktop it is not responsive ",
+  //   techUsed: [
+  //     "React",
+  //     "Html",
+  //     "CSS",
+  //     "javascript",
+  //     "framer-motion",
+  //     "react-beautiful-dnd",
+  //     "smooth-dnd",
+  //   ],
+  //   gitHubLink: "https://github.com/satyamtheone",
+  //   liveLink: "https://easytemplatebuilder.netlify.app/",
+  //   images: [template1, template2, template3],
+  // },
   {
     id: "5",
     title: "A try with scroll animations",
+    type: "personal",
+    role: "Just for Ai fun i was trying to make a scroll animation just like 3JS but without it",
     description:
       "This  sample page using javascript code and animation library i was trying to make a scroll animation just like 3JS but without it  ",
     techUsed: [
@@ -154,6 +165,7 @@ export const projects = [
   {
     id: "6",
     title: "YoBiz",
+    type: "company",
     description: `The project was a B2C web platform designed for individual retailers, enabling them to instantly create and share
      digital product catalogs, promotional posts, and product links to boost online visibility and sales. It also featured ad banner 
      placements to help retailers promote their products effectively.
@@ -180,6 +192,7 @@ export const projects = [
   {
     id: "7",
     title: "ImagineClick",
+    type: "company",
     description: `The project was a service marketplace platform that connected service providers and receivers 
     for tasks such as cleaning, tile work,
      plastering, and delivery services. Users could create detailed profiles
@@ -205,6 +218,7 @@ export const projects = [
   {
     id: "8",
     title: "YoEmbryo",
+    type: "company",
     description: `The project was a matching platform for embryo donors and receivers, 
     designed to help users connect, communicate, and find their ideal match securely. 
     Users completed a series of questionnaire-based inputs, and the system generated personalized 
@@ -229,6 +243,7 @@ export const projects = [
   {
     id: "11",
     title: "Spc/Pil Regulatory base project",
+    type: "company",
     role: "As a sr frontend developer i was responsible for building / thinking user flow the functionality of te project discuss with actual regulatory team and implement the functionality in the project",
     description:
       " This was company project based on Creating regulatory base for SPC/PIL products, which includes creating a database of all the products and their regulatory information. The project was built using React, Next.js, and Tailwind CSS. The project was built in a way that it can be easily extended to other products as well.",
@@ -248,6 +263,7 @@ export const projects = [
   {
     id: "12",
     title: "Pv intel",
+    type: "company",
     role: "As a sr frontend developer i was responsible for building / thinking user flow the functionality of te project discuss with actual regulatory team and implement the functionality in the project",
     description:
       "This was also a company project based on Creating a platform for PV intel, which includes creating a database of all the products and their regulatory information. The project was built using React, Next.js, and Tailwind CSS. The project was built in a way that it can be easily extended to other products as well.",
@@ -292,6 +308,7 @@ export const techStack = [
 export const titles = [
   "Senior Frontend Developer",
   "React & Next.js Specialist",
+  "More Then a Developer",
   "Cross-Platform Developer",
   "UI/UX Design Expert",
   "Performance Optimization Guru",

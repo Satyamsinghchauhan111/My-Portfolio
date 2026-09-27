@@ -188,11 +188,11 @@ const HeroAvatar = () => {
       </div>
 
       {/* Floating badges */}
-      <div className="absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-20">
+      <div className="absolute -left-2 sm:-left-4 max-sm:top-48 top-1/2 -translate-y-1/2 z-20">
         <div className="animate-float">
           <div className="glass glass-hover rounded-xl sm:rounded-2xl px-2.5 sm:px-4 py-1.5 sm:py-2 shadow-lg shadow-primary/10">
             <div className="text-[10px] sm:text-xs font-semibold text-primary">
-              5+ Years
+              4.5+ Years
             </div>
             <div className="text-[8px] sm:text-[10px] text-muted-foreground">
               Experience

@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Tilt } from "react-tilt";
 import {
   FolderGit2,
   ExternalLink,
@@ -13,6 +14,7 @@ import {
   Sparkles,
   ArrowUpRight,
   UserCircle2Icon,
+  UserRound,
 } from "lucide-react";
 import { projects } from "@/utils";
 import {
@@ -51,6 +53,18 @@ const FILTERS: { id: FilterType; label: string; icon: React.ReactNode }[] = [
   },
 ];
 
+const tiltOptions = {
+  reverse: false,
+  max: 12,
+  perspective: 1000,
+  scale: 1.02,
+  speed: 800,
+  transition: true,
+  axis: null,
+  reset: true,
+  easing: "cubic-bezier(.03,.98,.52,.99)",
+};
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -58,11 +72,7 @@ const Projects = () => {
 
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "all") return true;
-    if (activeFilter === "client") return project.for;
-    if (activeFilter === "personal")
-      return project.images && project.images.length > 0 && !project.for;
-    if (activeFilter === "company") return project.role;
-    return true;
+    return project.type === activeFilter;
   });
 
   const openPreview = useCallback((project: Project) => {
@@ -112,6 +122,34 @@ const Projects = () => {
     },
   };
 
+  const getTypeMeta = (project: Project) => {
+    switch (project.type) {
+      case "client":
+        return {
+          label: "Client Project",
+          icon: <UserCircle2Icon className="w-3 h-3" />,
+          badgeClass: "bg-accent/90 text-accent-foreground border-transparent",
+          roleClass: "bg-accent/5 border-accent/20 text-accent",
+        };
+      case "company":
+        return {
+          label: "Company Project",
+          icon: <Briefcase className="w-3 h-3" />,
+          badgeClass:
+            "bg-secondary/90 text-secondary-foreground border-transparent",
+          roleClass: "bg-secondary/5 border-secondary/20 text-secondary",
+        };
+      default:
+        return {
+          label: "Personal Project",
+          icon: <Rocket className="w-3 h-3" />,
+          badgeClass:
+            "bg-primary/90 text-primary-foreground border-transparent",
+          roleClass: "bg-primary/5 border-primary/20 text-primary",
+        };
+    }
+  };
+
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -156,7 +194,7 @@ const Projects = () => {
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={cn(
-                  "relative inline-flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
+                  "relative inline-flex items-center gap-2 max-sm:py-0 max-sm:px-0 px-4 md:px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
                   activeFilter === filter.id
                     ? "text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-primary/5"
@@ -169,7 +207,7 @@ const Projects = () => {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex max-sm:text-[10px] max-sm:px-1 items-center gap-2">
                   {filter.icon}
                   {filter.label}
                 </span>
@@ -189,7 +227,7 @@ const Projects = () => {
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => {
               const hasImages = project.images && project.images.length > 0;
-              const isCompany = !!project.role;
+              const typeMeta = getTypeMeta(project);
 
               return (
                 <motion.div
@@ -203,144 +241,149 @@ const Projects = () => {
                   }}
                   className="group relative"
                 >
-                  <div className="card-modern h-full flex flex-col overflow-hidden">
-                    {/* Image Preview Area */}
-                    <div className="relative h-52 overflow-hidden bg-muted/30">
-                      {hasImages ? (
-                        <>
-                          <img
-                            src={project.images![0]}
-                            alt={project.title}
-                            className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
-                          />
-                          {/* Gradient overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                  <Tilt options={tiltOptions} className="w-full h-full">
+                    <div className="card-modern h-full flex flex-col overflow-hidden">
+                      {/* Image Preview Area */}
+                      <div className="relative h-52 overflow-hidden bg-muted/30">
+                        {hasImages ? (
+                          <>
+                            <img
+                              src={project.images![0]}
+                              alt={project.title}
+                              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                            />
+                            {/* Gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
 
-                          {/* Image count badge */}
-                          <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white text-xs font-medium">
-                            <Layers className="w-3 h-3" />
-                            {project.images!.length} shots
-                          </div>
-                        </>
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent">
-                          <div className="text-center">
-                            <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-3">
-                              <Briefcase className="w-8 h-8 text-primary" />
+                            {/* Image count badge */}
+                            <div className="absolute top-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white text-xs font-medium">
+                              <Layers className="w-3 h-3" />
+                              {project.images!.length} shots
                             </div>
-                            <p className="text-sm text-muted-foreground font-medium">
-                              Company Project
-                            </p>
+                          </>
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent">
+                            <div className="text-center">
+                              <div className="w-16 h-16 mx-auto rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-3">
+                                <Briefcase className="w-8 h-8 text-primary" />
+                              </div>
+                              <p className="text-sm text-muted-foreground font-medium">
+                                {typeMeta.label}
+                              </p>
+                            </div>
                           </div>
+                        )}
+
+                        {/* Type badge */}
+                        <div className="absolute top-3 left-3">
+                          <Badge
+                            variant={
+                              project.type === "company"
+                                ? "secondary"
+                                : "default"
+                            }
+                            className={cn(
+                              "backdrop-blur-sm shadow-lg",
+                              typeMeta.badgeClass
+                            )}
+                          >
+                            <span className="flex items-center gap-1">
+                              {typeMeta.icon}
+                              {typeMeta.label}
+                            </span>
+                          </Badge>
                         </div>
-                      )}
 
-                      {/* Type badge */}
-                      <div className="absolute top-3 left-3">
-                        <Badge
-                          variant={isCompany ? "secondary" : "default"}
-                          className={cn(
-                            "backdrop-blur-sm shadow-lg",
-                            isCompany
-                              ? "bg-secondary/90 text-secondary-foreground border-transparent"
-                              : "bg-primary/90 text-primary-foreground border-transparent"
-                          )}
-                        >
-                          {project.for ? (
-                            <span className="flex items-center gap-1">
-                              <UserCircle2Icon className="w-3 h-3" /> Client
-                              Project
-                            </span>
-                          ) : isCompany ? (
-                            <span className="flex items-center gap-1">
-                              <Briefcase className="w-3 h-3" /> Company
-                            </span>
-                          ) : (
-                            <span className="flex items-center gap-1">
-                              <Rocket className="w-3 h-3" /> Personal
-                            </span>
-                          )}
-                        </Badge>
-                      </div>
-
-                      {/* Hover actions */}
-                      <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/30 backdrop-blur-[2px]">
-                        {hasImages && (
-                          <button
-                            onClick={() => openPreview(project)}
-                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-900 text-sm font-semibold shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
-                          >
-                            <Eye className="w-4 h-4" />
-                            Preview
-                          </button>
-                        )}
-                        {project.liveLink && (
-                          <a
-                            href={project.liveLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                            Live
-                          </a>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-5 flex-1 flex flex-col">
-                      <div className="flex items-start justify-between gap-3 mb-3">
-                        <h3 className="text-lg font-semibold text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
-                          {project.title}
-                        </h3>
-                        <div className="flex gap-1.5 shrink-0">
-                          {project.gitHubLink && (
-                            <a
-                              href={project.gitHubLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                        {/* Hover actions */}
+                        <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/30 backdrop-blur-[2px]">
+                          {hasImages && (
+                            <button
+                              onClick={() => openPreview(project)}
+                              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-slate-900 text-sm font-semibold shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
                             >
-                              <Github className="w-4 h-4" />
-                            </a>
+                              <Eye className="w-4 h-4" />
+                              Preview
+                            </button>
                           )}
                           {project.liveLink && (
                             <a
                               href={project.liveLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
                             >
-                              <ArrowUpRight className="w-4 h-4" />
+                              <ExternalLink className="w-4 h-4" />
+                              Live
                             </a>
                           )}
                         </div>
                       </div>
 
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">
-                        {project.description}
-                      </p>
+                      {/* Content */}
+                      <div className="p-5 flex-1 flex flex-col">
+                        <div className="flex items-start justify-between gap-3 mb-3">
+                          <h3 className="text-lg font-semibold text-foreground leading-snug group-hover:text-primary transition-colors duration-300">
+                            {project.title}
+                          </h3>
+                          <div className="flex gap-1.5 shrink-0">
+                            {project.gitHubLink && (
+                              <a
+                                href={project.gitHubLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                              >
+                                <Github className="w-4 h-4" />
+                              </a>
+                            )}
+                            {project.liveLink && (
+                              <a
+                                href={project.liveLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-8 h-8 rounded-lg border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                              >
+                                <ArrowUpRight className="w-4 h-4" />
+                              </a>
+                            )}
+                          </div>
+                        </div>
 
-                      <div className="mt-auto">
-                        <div className="flex flex-wrap gap-1.5">
-                          {project.techUsed.slice(0, 4).map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-primary/5 border border-primary/10 text-foreground/70"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                          {project.techUsed.length > 4 && (
-                            <span className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-muted text-muted-foreground">
-                              +{project.techUsed.length - 4}
-                            </span>
+                        {/* Role Highlight */}
+                        <div
+                          className={cn(
+                            "mb-3 px-3 py-2 rounded-lg border text-xs font-medium leading-relaxed flex items-start gap-2",
+                            typeMeta.roleClass
                           )}
+                        >
+                          <UserRound className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                          <span className="line-clamp-2">{project.role}</span>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+                          {project.description}
+                        </p>
+
+                        <div className="mt-auto">
+                          <div className="flex flex-wrap gap-1.5">
+                            {project.techUsed.slice(0, 4).map((tech) => (
+                              <span
+                                key={tech}
+                                className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-primary/5 border border-primary/10 text-foreground/70"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                            {project.techUsed.length > 4 && (
+                              <span className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-muted text-muted-foreground">
+                                +{project.techUsed.length - 4}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Tilt>
                 </motion.div>
               );
             })}
@@ -430,22 +473,33 @@ const Projects = () => {
                     </DialogTitle>
                     <div className="flex items-center gap-2">
                       <Badge
-                        variant={selectedProject.role ? "secondary" : "default"}
+                        variant={
+                          selectedProject.type === "company"
+                            ? "secondary"
+                            : "default"
+                        }
                         className={cn(
-                          selectedProject.role
+                          selectedProject.type === "company"
                             ? "bg-secondary/15 text-secondary border-secondary/30"
+                            : selectedProject.type === "client"
+                            ? "bg-accent/15 text-accent border-accent/30"
                             : "bg-primary/15 text-primary border-primary/30"
                         )}
                       >
-                        {selectedProject.role ? (
-                          <span className="flex items-center gap-1">
-                            <Briefcase className="w-3 h-3" /> Company Project
-                          </span>
-                        ) : (
-                          <span className="flex items-center gap-1">
-                            <Rocket className="w-3 h-3" /> Personal Project
-                          </span>
-                        )}
+                        <span className="flex items-center gap-1">
+                          {selectedProject.type === "company" ? (
+                            <Briefcase className="w-3 h-3" />
+                          ) : selectedProject.type === "client" ? (
+                            <UserCircle2Icon className="w-3 h-3" />
+                          ) : (
+                            <Rocket className="w-3 h-3" />
+                          )}
+                          {selectedProject.type === "company"
+                            ? "Company Project"
+                            : selectedProject.type === "client"
+                            ? "Client Project"
+                            : "Personal Project"}
+                        </span>
                       </Badge>
                     </div>
                   </div>
@@ -479,17 +533,41 @@ const Projects = () => {
                   {selectedProject.description}
                 </DialogDescription>
 
-                {selectedProject.role && (
-                  <div className="mb-6 p-4 rounded-xl bg-secondary/5 border border-secondary/20">
-                    <h4 className="text-sm font-semibold text-secondary mb-2 flex items-center gap-2">
-                      <Briefcase className="w-4 h-4" />
+                {/* Role Highlight - Always shown */}
+                <div
+                  className={cn(
+                    "mb-6 p-4 rounded-xl border flex items-start gap-3",
+                    selectedProject.type === "company"
+                      ? "bg-secondary/5 border-secondary/20"
+                      : selectedProject.type === "client"
+                      ? "bg-accent/5 border-accent/20"
+                      : "bg-primary/5 border-primary/20"
+                  )}
+                >
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                    <UserRound className="w-4.5 h-4.5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-sm font-semibold text-foreground mb-1.5 flex items-center gap-2">
                       My Role
+                      <span
+                        className={cn(
+                          "px-2 py-0.5 rounded-full text-[10px] font-medium uppercase tracking-wider",
+                          selectedProject.type === "company"
+                            ? "bg-secondary/15 text-secondary"
+                            : selectedProject.type === "client"
+                            ? "bg-accent/15 text-accent"
+                            : "bg-primary/15 text-primary"
+                        )}
+                      >
+                        {selectedProject.type}
+                      </span>
                     </h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {selectedProject.role}
                     </p>
                   </div>
-                )}
+                </div>
 
                 <div>
                   <h4 className="text-sm font-semibold text-foreground mb-3">
