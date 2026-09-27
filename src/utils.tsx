@@ -1,12 +1,14 @@
-import Portfolio1 from "./assets/projects/portfolio1.png";
-import Portfolio2 from "./assets/projects/portfolio2.png";
-import Portfolio3 from "./assets/projects/portfolio3.png";
 import help1 from "./assets/projects/help1.png";
 import help2 from "./assets/projects/help2.png";
 import help3 from "./assets/projects/help3.png";
 import help4 from "./assets/projects/help4.png";
-import help5 from "./assets/projects/help5.png";
-import help6 from "./assets/projects/help6.png";
+import ai1 from "./assets/projects/ai1.png";
+import ai2 from "./assets/projects/ai2.png";
+import ai3 from "./assets/projects/ai3.png";
+import ai4 from "./assets/projects/ai4.png";
+import uk1 from "./assets/projects/uk1.png";
+import uk2 from "./assets/projects/uk2.png";
+import uk3 from "./assets/projects/uk3.png";
 import client1 from "./assets/projects/client1.png";
 import client2 from "./assets/projects/client2.png";
 import client3 from "./assets/projects/client3.png";
@@ -22,16 +24,17 @@ import future2 from "./assets/projects/future2.png";
 import future3 from "./assets/projects/future3.png";
 
 export const projects = [
-  // {
-  //   id: "1",
-  //   title: "Old Portfolio",
-  //   description:
-  //     "This portfolio was made by me just to see what i have learn design part in my early days",
-  //   techUsed: ["React", "Html", "CSS"],
-  //   gitHubLink: "https://github.com/satyamtheone",
-  //   liveLink: "https://merry-marshmallow-e96507.netlify.app/",
-  //   images: [Portfolio1, Portfolio2, Portfolio3],
-  // },
+  {
+    id: "1",
+    title: "Ai component generator",
+    description:
+      "This is my personal project : Ai component generator is a web application that leverages the power of OpenAI's GPT-3.5-turbo model to generate React components based on user-provided prompts. Users can input a description of the desired component, and the application will return the corresponding React code, which can be easily copied and integrated into their projects. This tool aims to streamline the development process by providing quick and accurate component generation, saving developers time and effort.",
+    techUsed: ["vercel sdk", "Gemini Ai", "React", "Html", "CSS"],
+    gitHubLink: "https://github.com/satyamtheone/ai-chat-assistant/",
+    liveLink:
+      "https://ai-chat-assistant-ni16y4euf-satyams-projects-5b6b33f2.vercel.app/",
+    images: [ai1, ai2, ai3, ai4],
+  },
   {
     id: "2",
     title: "Local Help",
@@ -49,11 +52,12 @@ export const projects = [
     ],
     gitHubLink: "https://github.com/satyamtheone/nearby-aid-now",
     liveLink: "https://nearby-aid-now.vercel.app/",
-    images: [help1, help2, help3, help4, help5, help6],
+    images: [help1, help2, help3, help4],
   },
   {
     id: "3",
     title: "Clients marketing site",
+    for: "Client project",
     description:
       "Client was in urgency to make a marketing site for his project so i build this static website just under 2 days with pixel perfect responsive design",
     techUsed: [
@@ -70,6 +74,46 @@ export const projects = [
     gitHubLink: "https://github.com/satyamtheone",
     liveLink: "https://dashing-sprite-d874b7.netlify.app/",
     images: [client1, client2, client3, client4, client5],
+  },
+  {
+    id: "4",
+    title: "Travel booking site",
+    for: "Client project",
+    description:
+      "This was my client project i was responsible for making a travel booking site with all the features like booking, payment, and user management",
+    techUsed: [
+      "React",
+      "Html",
+      "CSS",
+      "tailwind",
+      "vite",
+      "javascript",
+      "typescript",
+    ],
+    gitHubLink: "https://github.com/satyamtheone/uttarakhand-journeys-main/",
+    liveLink: "https://uttarakhand-journeys-main.vercel.app/",
+    images: [uk1, uk2, uk3],
+  },
+  {
+    id: "10",
+    title: "Ai Quiz app",
+    for: "Client project",
+    description:
+      "This was my client project i was responsible for making a quiz app with all the features like quiz, payment, and user management",
+    techUsed: [
+      "React Js",
+      "Next Js",
+      "Typescript",
+      "Redux",
+      "Capacitor",
+      "Firebase Notification",
+      "Tailwind",
+      "Daisy Ui",
+      "Formik",
+      "Html",
+      "CSS",
+    ],
+    gitHubLink: "https://github.com/satyamtheone/ai4u-client/",
   },
   {
     id: "4",
@@ -182,6 +226,44 @@ export const projects = [
     ],
     gitHubLink: "https://github.com/satyamtheone",
   },
+  {
+    id: "11",
+    title: "Spc/Pil Regulatory base project",
+    role: "As a sr frontend developer i was responsible for building / thinking user flow the functionality of te project discuss with actual regulatory team and implement the functionality in the project",
+    description:
+      " This was company project based on Creating regulatory base for SPC/PIL products, which includes creating a database of all the products and their regulatory information. The project was built using React, Next.js, and Tailwind CSS. The project was built in a way that it can be easily extended to other products as well.",
+    techUsed: [
+      "react",
+      "next js",
+      "tailwind",
+      "typescript",
+      "html",
+      "css",
+      "Only Office",
+      "redux",
+      "RTK Query",
+    ],
+    gitHubLink: "https://github.com/satyamtheone/ai-chat-assistant/",
+  },
+  {
+    id: "12",
+    title: "Pv intel",
+    role: "As a sr frontend developer i was responsible for building / thinking user flow the functionality of te project discuss with actual regulatory team and implement the functionality in the project",
+    description:
+      "This was also a company project based on Creating a platform for PV intel, which includes creating a database of all the products and their regulatory information. The project was built using React, Next.js, and Tailwind CSS. The project was built in a way that it can be easily extended to other products as well.",
+    techUsed: [
+      "react",
+      "next js",
+      "tailwind",
+      "typescript",
+      "html",
+      "css",
+      "Only Office",
+      "redux",
+      "RTK Query",
+    ],
+    gitHubLink: "https://github.com/satyamtheone/ai-chat-assistant/",
+  },
 ];
 
 export const routes = [
@@ -192,9 +274,9 @@ export const routes = [
 ];
 export const techStack = [
   "React Js",
+  "Next js",
   "javascript",
   "TypeScript",
-  "Next js",
   "Tailwind CSS",
   "Material UI",
   "Cypress",

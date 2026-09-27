@@ -12,6 +12,7 @@ import {
   Briefcase,
   Sparkles,
   ArrowUpRight,
+  UserCircle2Icon,
 } from "lucide-react";
 import { projects } from "@/utils";
 import {
@@ -25,7 +26,7 @@ import { cn } from "@/lib/utils";
 
 type Project = (typeof projects)[number];
 
-type FilterType = "all" | "personal" | "company";
+type FilterType = "all" | "personal" | "company" | "client";
 
 const FILTERS: { id: FilterType; label: string; icon: React.ReactNode }[] = [
   {
@@ -43,6 +44,11 @@ const FILTERS: { id: FilterType; label: string; icon: React.ReactNode }[] = [
     label: "Company Work",
     icon: <Briefcase className="w-3.5 h-3.5" />,
   },
+  {
+    id: "client",
+    label: "Client Work",
+    icon: <UserCircle2Icon className="w-3.5 h-3.5" />,
+  },
 ];
 
 const Projects = () => {
@@ -52,8 +58,9 @@ const Projects = () => {
 
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "all") return true;
+    if (activeFilter === "client") return project.for;
     if (activeFilter === "personal")
-      return project.images && project.images.length > 0;
+      return project.images && project.images.length > 0 && !project.for;
     if (activeFilter === "company") return project.role;
     return true;
   });
@@ -239,7 +246,12 @@ const Projects = () => {
                               : "bg-primary/90 text-primary-foreground border-transparent"
                           )}
                         >
-                          {isCompany ? (
+                          {project.for ? (
+                            <span className="flex items-center gap-1">
+                              <UserCircle2Icon className="w-3 h-3" /> Client
+                              Project
+                            </span>
+                          ) : isCompany ? (
                             <span className="flex items-center gap-1">
                               <Briefcase className="w-3 h-3" /> Company
                             </span>
